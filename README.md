@@ -1,2 +1,2 @@
-# pica
+# PICA
 Repo for PICA
