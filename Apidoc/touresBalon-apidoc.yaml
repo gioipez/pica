@@ -22,6 +22,8 @@ tags:
   description: Servicio para manejo de usuarios
 - name: event
   description: Servicio para manejo de eventos
+- name: ofert
+description: Servicio para manejo de ofertas
 paths:
   /login:
     post:
@@ -270,6 +272,34 @@ paths:
         404:
           description: Event not found
           content: {}
+  /ofert:
+    post:
+      tags:
+      - ofert
+      summary: creacion de una oferta
+      operationId: createOfert
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ofert'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ofert'
+        required: true
+      responses:
+        200:
+          description: ofert successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseOfert'
+        404:
+          description: Invalid ofert
+          content: {}
+        405:
+          description: Invalid input
+          content: {}
 components:
   schemas:
     Login:
@@ -340,6 +370,34 @@ components:
           - sold
       xml:
         name: Event
+    Ofert:
+      required:
+      - type
+      - name
+      - date
+      - location
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: hotel mote e queso
+        date:
+          type: string
+          example: 2019/12/12
+        photoUrls:
+          type: array
+          xml:
+            name: photoUrl
+            wrapped: true
+          items:
+            type: string
+        
     ApiResponse:
       type: object
       properties:
