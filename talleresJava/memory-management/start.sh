@@ -4,7 +4,7 @@ if [[ -z "$FILE_NAME" ]]; then
     echo "Not file to process provided"
 else
     ./gradlew clean build
-    java -Xms12m -Xmx12m -jar build/libs/memory-management.jar ${FILE_NAME}
+    java -Xms64m -Xmx64m -jar build/libs/memory-management.jar ${FILE_NAME}
 
     if [[ "$OSTYPE" == "linux-gnu" ]]; then # Linux
         echo "$(md5sum ${FILE_NAME}.gz)"
