@@ -22,7 +22,7 @@ tags:
   description: Servicio para manejo de usuarios
 - name: event
   description: Servicio para manejo de eventos
-- name: ofert
+- name: offer
 description: Servicio para manejo de ofertas
 paths:
   /login:
@@ -64,6 +64,27 @@ paths:
           description: successful operation
           content: {}
   /user:
+    get:
+      tags:
+      - user
+      summary: Buscar Usuarios
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        404:
+          description: Offer not found
+          content: {}
     post:
       tags:
       - user
@@ -272,33 +293,127 @@ paths:
         404:
           description: Event not found
           content: {}
-  /ofert:
+  /offer:
+    get:
+      tags:
+      - offer
+      summary: Buscar ofertas
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+        404:
+          description: Offer not found
+          content: {}
     post:
       tags:
-      - ofert
-      summary: creacion de una oferta
-      operationId: createOfert
+      - offer
+      summary: creacion de una offerta
+      operationId: createOffer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ofert'
+              $ref: '#/components/schemas/Offer'
           application/xml:
             schema:
-              $ref: '#/components/schemas/ofert'
+              $ref: '#/components/schemas/Offer'
         required: true
       responses:
         200:
-          description: ofert successful
+          description: offer successful
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseOfert'
+                $ref: '#/components/schemas/ApiResponse'
         404:
-          description: Invalid ofert
+          description: Invalid offer
           content: {}
         405:
           description: Invalid input
+          content: {}
+  /offer/{offerId}:
+    get:
+      tags:
+      - offer
+      summary: Buscar ofertas por id
+      operationId: findOfferById
+      parameters:
+      - name: offerId
+        in: path
+        description: ID of offert to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Offer'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+        404:
+          description: Offer not found
+          content: {}
+    put:
+      tags:
+      - offer
+      summary: Actualizar un oferta
+      operationId: updateOffer
+      parameters:
+      - name: offerId
+        in: path
+        description: Offerta a actualizar
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Updated offer object
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Offer'
+        required: true
+      responses:
+        400:
+          description: Invalid event supplied
+          content: {}
+        404:
+          description: Event not found
+          content: {}
+    delete:
+      tags:
+      - offer
+      summary: Elimina un oferta
+      operationId: deleteOffer
+      parameters:
+      - name: offerId
+        in: path
+        description: Offer id to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Offer not found
           content: {}
 components:
   schemas:
@@ -370,7 +485,7 @@ components:
           - sold
       xml:
         name: Event
-    Ofert:
+    Offer:
       required:
       - type
       - name
@@ -397,7 +512,7 @@ components:
             wrapped: true
           items:
             type: string
-        
+
     ApiResponse:
       type: object
       properties:
