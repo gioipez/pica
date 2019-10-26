@@ -1,0 +1,8 @@
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.deps.json
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.csprojAssemblyReference.cache
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.AssemblyInfoInputs.cache
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.AssemblyInfo.cs
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.pdb

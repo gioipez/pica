@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "MoteeQueso.Infraestructure/1.0.0": {
+        "runtime": {
+          "MoteeQueso.Infraestructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MoteeQueso.Infraestructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,8 @@
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\bin\Debug\netcoreapp3.0\MoteeQueso.Core.deps.json
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\bin\Debug\netcoreapp3.0\MoteeQueso.Core.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\bin\Debug\netcoreapp3.0\MoteeQueso.Core.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.csprojAssemblyReference.cache
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.AssemblyInfoInputs.cache
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.AssemblyInfo.cs
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.pdb
