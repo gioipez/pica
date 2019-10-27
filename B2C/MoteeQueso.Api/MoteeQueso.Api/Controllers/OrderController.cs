@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MoteeQueso.Api.ViewModels;
+using MoteeQueso.Core.Interfaces;
+using MoteeQueso.Core.Services;
+using MoteeQueso.Infraestructure.Entities;
 
 namespace MoteeQueso.Api.Controllers
 {
@@ -20,7 +23,21 @@ namespace MoteeQueso.Api.Controllers
         [HttpPost]
         public IActionResult Create(OrderViewModel orderViewModel)
         {
-            return Ok(orderViewModel);
+            IOrderService orderService = new OrderService();
+
+            Order order = new Order
+            {
+                CustomerId = orderViewModel.CustomerId,
+                Date = orderViewModel.Date,
+                Number = orderViewModel.Number,
+                Price = orderViewModel.Price,
+                StatusId = orderViewModel.StatusId,
+                Comments = orderViewModel.Comments
+            };
+
+            order = orderService.CreateOrder(order);
+
+            return Ok(order.Id);
         }
 
         /// <summary>
@@ -31,7 +48,21 @@ namespace MoteeQueso.Api.Controllers
         [HttpPut]
         public IActionResult Update(OrderViewModel orderViewModel)
         {
-            return Ok(orderViewModel);
+            IOrderService orderService = new OrderService();
+
+            Order order = new Order
+            {
+                CustomerId = orderViewModel.CustomerId,
+                Date = orderViewModel.Date,
+                Number = orderViewModel.Number,
+                Price = orderViewModel.Price,
+                StatusId = orderViewModel.StatusId,
+                Comments = orderViewModel.Comments
+            };
+
+            order = orderService.CreateOrder(order);
+
+            return Ok(true);
         }
     }
 }

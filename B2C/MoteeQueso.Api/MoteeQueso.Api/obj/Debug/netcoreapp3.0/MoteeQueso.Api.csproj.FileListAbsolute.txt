@@ -108,3 +108,17 @@ D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\M
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.csproj.CopyComplete
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.dll
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\EntityFramework.SqlServer.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\EntityFramework.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.Build.Framework.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.Build.Tasks.Core.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.Build.Utilities.Core.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.CodeDom.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Data.SqlClient.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Resources.Extensions.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Core.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Core.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.pdb

@@ -29,6 +29,65 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "projectReferences": {
+              "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj": {
+                "projectPath": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
+        "projectName": "MoteeQueso.Infraestructure",
+        "projectPath": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\Elver Florez\\.nuget\\packages\\",
+        "outputPath": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Elver Florez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
             "projectReferences": {}
           }
         },
@@ -40,6 +99,20 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "Microsoft.Build.Tasks.Core": {
+              "target": "Package",
+              "version": "[16.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

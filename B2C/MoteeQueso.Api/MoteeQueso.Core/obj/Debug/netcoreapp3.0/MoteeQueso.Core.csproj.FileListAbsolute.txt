@@ -6,3 +6,6 @@ D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.AssemblyInfo.cs
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.dll
 D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.pdb
+D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Core\obj\Debug\netcoreapp3.0\MoteeQueso.Core.csproj.CopyComplete

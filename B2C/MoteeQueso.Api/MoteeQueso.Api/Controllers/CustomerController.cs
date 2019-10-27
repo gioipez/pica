@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoteeQueso.Api.ViewModels;
+using MoteeQueso.Core.Interfaces;
+using MoteeQueso.Core.Services;
+using MoteeQueso.Infraestructure.Entities;
 
 namespace MoteeQueso.Api.Controllers
 {
@@ -15,7 +18,21 @@ namespace MoteeQueso.Api.Controllers
         [HttpPost]
         public IActionResult Create(CustomerViewModel customerViewModel)
         {
-            return Ok(customerViewModel);
+            ICustomerService customerService = new CustomerService();
+
+            Customer customer = new Customer
+            {
+                FirstName = customerViewModel.FirstName,
+                SecondName = customerViewModel.SecondName,
+                LastName = customerViewModel.LastName,
+                SecondLastName = customerViewModel.SecondLastName,
+                PhoneNumber = customerViewModel.PhoneNumber,
+                Email = customerViewModel.Email
+            };
+
+            customer = customerService.CreateCustomer(customer);
+
+            return Ok(customer.Id);
         }
     }
 }
