@@ -1,0 +1,8 @@
+CREATE TABLE Items (
+	ItemId UNIQUEIDENTIFIER PRIMARY KEY,
+	ProdId INT ,
+	ProductName VARCHAR(50),
+	PartNum VARCHAR(20),
+	Price DECIMAL,
+	Quantity INT 
+)
