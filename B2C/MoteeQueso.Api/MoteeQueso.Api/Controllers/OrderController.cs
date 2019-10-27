@@ -52,6 +52,7 @@ namespace MoteeQueso.Api.Controllers
 
             Order order = new Order
             {
+                Id = orderViewModel.Id,
                 CustomerId = orderViewModel.CustomerId,
                 Date = orderViewModel.Date,
                 Number = orderViewModel.Number,
@@ -60,7 +61,7 @@ namespace MoteeQueso.Api.Controllers
                 Comments = orderViewModel.Comments
             };
 
-            order = orderService.CreateOrder(order);
+            order = orderService.UpdateOrder(order);
 
             return Ok(true);
         }
