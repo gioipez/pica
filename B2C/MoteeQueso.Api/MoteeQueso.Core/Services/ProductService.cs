@@ -9,12 +9,22 @@ namespace MoteeQueso.Core.Services
 {
     public class ProductService : IProductService
     {
-        public List<Product> GetProducts()
+        public List<PRODUCTO> GetProducts()
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Products.ToList();
+                return entities.PRODUCTO.ToList();
             }
+        }
+
+        public PRODUCTO CreateProduct(PRODUCTO product){
+            using (B2CEntities entities = new B2CEntities())
+            {
+                entities.PRODUCTO.Add(product);
+                entities.SaveChanges();
+            }
+
+            return product;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace MoteeQueso.Api.Controllers
         /// </summary>
         /// <param name="customerViewModel">Datos cliente</param>
         /// <returns>Cliente</returns>
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Create(CustomerViewModel customerViewModel)
         {
             ICustomerService customerService = new CustomerService();
@@ -33,6 +33,6 @@ namespace MoteeQueso.Api.Controllers
             customer = customerService.CreateCustomer(customer);
 
             return Ok(customer.Id);
-        }
+        }*/
     }
 }

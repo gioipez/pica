@@ -20,7 +20,7 @@ namespace MoteeQueso.Api.Controllers
         /// </summary>
         /// <param name="orderViewModel">Datos orden</param>
         /// <returns>Orden</returns>
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Create(OrderViewModel orderViewModel)
         {
             IOrderService orderService = new OrderService();
@@ -63,6 +63,6 @@ namespace MoteeQueso.Api.Controllers
             order = orderService.CreateOrder(order);
 
             return Ok(true);
-        }
+        }*/
     }
 }

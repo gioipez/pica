@@ -5,9 +5,9 @@ using MoteeQueso.Infraestructure.Entities;
 
 namespace MoteeQueso.Core.Services
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService //: ICustomerService
     {
-        public Customer CreateCustomer(Customer customer)
+        /*public Customer CreateCustomer(Customer customer)
         {
             using (B2CEntities entities = new B2CEntities())
             {
@@ -16,6 +16,6 @@ namespace MoteeQueso.Core.Services
             }
 
             return customer;
-        }
+        }*/
     }
 }
