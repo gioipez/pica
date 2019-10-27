@@ -26,5 +26,12 @@ namespace MoteeQueso.Core.Services
 
             return product;
         }
+
+        public PRODUCTO GetProductById(int id) {
+            using (B2CEntities entities = new B2CEntities())
+            {
+                return entities.PRODUCTO.Where(x => x.ID == id).FirstOrDefault();
+            }
+        }
     }
 }

@@ -6,3 +6,15 @@ CREATE TABLE Items (
 	Price DECIMAL,
 	Quantity INT 
 )
+
+
+/*Datos */
+
+INSERT INTO Items
+values (NEWID(), 1, '?espectaculo 1','asd',5000,1)
+
+
+/*
+select * from Items
+
+*/

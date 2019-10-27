@@ -9,43 +9,57 @@ using MoteeQueso.Core.Interfaces;
 using MoteeQueso.Core.Services;
 using MoteeQueso.Infraestructure.Entities;
 
-namespace MoteeQueso.Api.Controllers {
-    [Route ("api/[controller]")]
+namespace MoteeQueso.Api.Controllers
+{
+    [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase {
+    public class ProductController : ControllerBase
+    {
+        private readonly IProductService productService;
+        public ProductController() {
+            productService = new ProductService();
+        }
         /// <summary>
         /// Consultar productos (Escenario sin autorizacion)
         /// </summary>
         /// <returns>Lista de productos</returns>
         [HttpGet]
-        public IActionResult GetProducts () {
-            IProductService productService = new ProductService ();
-            List<PRODUCTO> products = productService.GetProducts ();
+        public async Task<IActionResult> GetProducts()
+        {
+            List<PRODUCTO> products = await Task.Run(() => products = productService.GetProducts());
 
-            List<ProductViewModel> productViewModels = new List<ProductViewModel> ();
+            List<ProductViewModel> productViewModels = new List<ProductViewModel>();
 
-            foreach (PRODUCTO product in products) {
-                productViewModels.Add (new ProductViewModel {
+            foreach (PRODUCTO product in products)
+            {
+                productViewModels.Add(new ProductViewModel
+                {
+                    ID = product.ID,
                     CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
-                        ESPECTACULO = product.ESPECTACULO,
-                        FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
-                        FECHA_LLEGADA = product.FECHA_LLEGADA,
-                        FECHA_SALIDA = product.FECHA_SALIDA,
-                        TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
-                        TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
-                        TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
+                    ESPECTACULO = product.ESPECTACULO,
+                    FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
+                    FECHA_LLEGADA = product.FECHA_LLEGADA,
+                    FECHA_SALIDA = product.FECHA_SALIDA,
+                    TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
+                    TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
+                    TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
 
                 });
             }
 
-            return Ok (productViewModels);
+            return Ok(productViewModels);
         }
 
+        /// <summary>
+        /// Creacion de productos
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         [HttpPost]
-        public IActionResult Create (ProductViewModel product) {
-            IProductService productService = new ProductService ();
-
-            PRODUCTO producto = new PRODUCTO {
+        public async Task<IActionResult> Create(ProductViewModel product)
+        {
+            PRODUCTO producto = new PRODUCTO
+            {
                 CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
                 ESPECTACULO = product.ESPECTACULO,
                 FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
@@ -56,9 +70,22 @@ namespace MoteeQueso.Api.Controllers {
                 TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
             };
 
-            producto = productService.CreateProduct (producto);
+            producto = await Task.Run(() => productService.CreateProduct(producto));
 
-            return Ok (producto);
+            return Ok(producto);
         }
+
+        /// <summary>
+        /// Consulta peoducto por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(int id)
+        {
+            PRODUCTO product = await Task.Run(() => product = productService.GetProductById(id) );
+            return Ok(product);
+        }
+    
     }
 }

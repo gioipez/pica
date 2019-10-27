@@ -7,5 +7,6 @@ namespace MoteeQueso.Core.Interfaces
     {
         List<PRODUCTO> GetProducts();
         PRODUCTO CreateProduct(PRODUCTO product);
+        PRODUCTO GetProductById(int id);
     }
 }
