@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MoteeQueso.Core.Services
 {
-    public class OrderService : IOrderService
+    public class OrderService //: IOrderService
     {
-        public Order CreateOrder(Order order)
+        /*public Order CreateOrder(Order order)
         {
             using (B2CEntities entities = new B2CEntities())
             {
@@ -27,6 +27,6 @@ namespace MoteeQueso.Core.Services
             }
 
             return order;
-        }
+        }*/
     }
 }

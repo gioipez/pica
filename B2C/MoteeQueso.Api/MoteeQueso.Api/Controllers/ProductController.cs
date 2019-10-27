@@ -9,39 +9,56 @@ using MoteeQueso.Core.Interfaces;
 using MoteeQueso.Core.Services;
 using MoteeQueso.Infraestructure.Entities;
 
-namespace MoteeQueso.Api.Controllers
-{
-    [Route("api/[controller]")]
+namespace MoteeQueso.Api.Controllers {
+    [Route ("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
-    {
+    public class ProductController : ControllerBase {
         /// <summary>
         /// Consultar productos (Escenario sin autorizacion)
         /// </summary>
         /// <returns>Lista de productos</returns>
         [HttpGet]
-        public IActionResult GetProducts()
-        {
-            IProductService productService = new ProductService();
-            List<Product> products = productService.GetProducts();
+        public IActionResult GetProducts () {
+            IProductService productService = new ProductService ();
+            List<PRODUCTO> products = productService.GetProducts ();
 
-            List<ProductViewModel> productViewModels = new List<ProductViewModel>();
+            List<ProductViewModel> productViewModels = new List<ProductViewModel> ();
 
-            foreach (Product product in products)
-            {
-                productViewModels.Add(new ProductViewModel
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Description = product.Description,
-                    ImageUrl = product.ImageUrl,
-                    Price = product.Price,
-                    City = product.City,
-                    Date = product.Date
+            foreach (PRODUCTO product in products) {
+                productViewModels.Add (new ProductViewModel {
+                    CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
+                        ESPECTACULO = product.ESPECTACULO,
+                        FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
+                        FECHA_LLEGADA = product.FECHA_LLEGADA,
+                        FECHA_SALIDA = product.FECHA_SALIDA,
+                        TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
+                        TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
+                        TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
+
                 });
             }
 
-            return Ok(productViewModels);
+            return Ok (productViewModels);
+        }
+
+        [HttpPost]
+        public IActionResult Create (ProductViewModel product) {
+            IProductService productService = new ProductService ();
+
+            PRODUCTO producto = new PRODUCTO {
+                CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
+                ESPECTACULO = product.ESPECTACULO,
+                FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
+                FECHA_LLEGADA = product.FECHA_LLEGADA,
+                FECHA_SALIDA = product.FECHA_SALIDA,
+                TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
+                TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
+                TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
+            };
+
+            producto = productService.CreateProduct (producto);
+
+            return Ok (producto);
         }
     }
 }

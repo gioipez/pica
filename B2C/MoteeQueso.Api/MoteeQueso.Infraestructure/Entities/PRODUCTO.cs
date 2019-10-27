@@ -1,9 +1,10 @@
-﻿using System;
+using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace MoteeQueso.Api.ViewModels
-{
-    public class ProductViewModel
-    {
+namespace MoteeQueso.Infraestructure.Entities {
+    public class PRODUCTO {
+
+        [Key]
         public int ID { get; set; }
         public string ESPECTACULO { get; set; }
         public DateTime FECHA_ESPECTACULO { get; set; }
@@ -13,5 +14,7 @@ namespace MoteeQueso.Api.ViewModels
         public int TIPO_TRANSPORTE { get; set; }
         public int TIPO_ESPECTACULO { get; set; }
         public int TIPO_OSPEDAJE { get; set; }
+
     }
+
 }
