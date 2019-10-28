@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  apiordercustomerb2c:
+    image: apiorderscustomerb2c
+    build:
+      context: .
+      dockerfile: MoteeQueso.OrdersCustomer.Api/Dockerfile
+    ports:
+      - "8080:80"

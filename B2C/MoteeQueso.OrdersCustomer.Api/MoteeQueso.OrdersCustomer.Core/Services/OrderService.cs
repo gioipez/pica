@@ -73,7 +73,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         private ProductBO GetProductById(int id)
         {
             ProductService productService = new ProductService();
-            IRestResponse response = productService.GetProduct($"http://40.76.5.2/api/Product/{id}", Method.GET);
+            IRestResponse response = productService.GetProduct($"http://apiordercustomerb2c/api/Product/{id}", Method.GET);
             ProductBO product = JsonConvert.DeserializeObject<ProductBO>(response.Content);
             return product;
         }

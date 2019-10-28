@@ -2,9 +2,9 @@ version: '3.4'
 
 services:
   apib2c:
-    image: apiorderscustomerb2c
+    image: apib2c
     build:
       context: .
-      dockerfile: MoteeQueso.OrdersCustomer.Api/Dockerfile
+      dockerfile: MoteeQueso.Api/Dockerfile
     ports:
-      - "8080:80"
+      - "80:80"
