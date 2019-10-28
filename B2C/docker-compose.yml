@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  apib2c:
+    image: apib2c
+    build:
+      context: .
+      dockerfile: MoteeQueso.Api/MoteeQueso.Api/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - moteequeso_api
+
+  apiordercustomerb2c:
+    image: apiorderscustomerb2c
+    build:
+      context: .
+      dockerfile: MoteeQueso.OrdersCustomer.Api/MoteeQueso.OrdersCustomer.Api/Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - moteequeso_api
+
+  stock-service:
+    build:
+        dockerfile: stock-services/Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - moteequeso_api
+
+network:
+    moteequeso_api:
