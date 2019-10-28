@@ -11,6 +11,7 @@ namespace MoteeQueso.OrdersCustomer.Infraestructure.Entities {
         public string PartNum { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
+        public Guid OrdId { get; set; }
 
     }
 }

@@ -15,12 +15,21 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
+        private readonly IItemsService itemsService;
 
+        public ItemsController()
+        {
+            itemsService = new ItemService();
+        }
+
+        /// <summary>
+        /// Consulta de items de una orden
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetItems()
         {
-            IItemsService itemsService = new ItemService();
-            List<Items> items = itemsService.GetItems();
+            List<Items> items = await Task.Run(()=> items = itemsService.GetItems());
 
             List<ItemsViewModel> itemsViewModels = new List<ItemsViewModel>();
 
@@ -40,11 +49,14 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
             return Ok(itemsViewModels);
         }
 
+        /// <summary>
+        /// creacion de Items de orden
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create(ItemsViewModel item)
         {
-            IItemsService itemsService = new ItemService();
-
             Items itemDB = new Items
             {
                 ItemId = Guid.NewGuid(),
@@ -55,10 +67,10 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
                 Quantity = item.Quantity
             };
 
-            itemDB = itemsService.CreateItem(itemDB);
+            itemDB = await Task.Run(() => itemDB = itemsService.CreateItem(itemDB));
 
             return Ok(itemDB);
-        }
+        }   
 
     }
 }

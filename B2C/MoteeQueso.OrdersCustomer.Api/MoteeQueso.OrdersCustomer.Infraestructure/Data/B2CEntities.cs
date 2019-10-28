@@ -4,10 +4,10 @@ using MoteeQueso.OrdersCustomer.Infraestructure.Entities;
 namespace MoteeQueso.OrdersCustomer.Infraestructure.Data
 {
     public class B2CEntities : DbContext
-    {        
+    {
         public virtual DbSet<Items> Items { get; set; }
-        //public virtual DbSet<Customer> Customers { get; set; }
-        //public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
