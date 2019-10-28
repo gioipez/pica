@@ -8,3 +8,5 @@ services:
       dockerfile: MoteeQueso.Api/Dockerfile
     ports:
       - "80:80"
+    networks:
+      - api_moteequeso
