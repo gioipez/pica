@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MoteeQueso.Api.ViewModels;
@@ -11,6 +12,7 @@ using MoteeQueso.Infraestructure.Entities;
 
 namespace MoteeQueso.Api.Controllers
 {
+    [EnableCors("AllowMyOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

@@ -239,10 +239,10 @@ C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\n
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.csprojAssemblyReference.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\staticwebassets\MoteeQueso.Api.StaticWebAssets.Manifest.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\staticwebassets\MoteeQueso.Api.StaticWebAssets.xml
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.AssemblyInfoInputs.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.AssemblyInfo.cs
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.RazorTargetAssemblyInfo.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.csproj.CopyComplete
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.pdb
+C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.MvcApplicationPartsAssemblyInfo.cache
