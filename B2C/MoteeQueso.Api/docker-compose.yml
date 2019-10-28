@@ -9,7 +9,5 @@ services:
     ports:
       - "80:80"
     networks:
-      - api_moteequeso
+      - bridge
 
-networks:
-    api_moteequeso:
