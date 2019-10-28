@@ -10,3 +10,6 @@ services:
       - "80:80"
     networks:
       - api_moteequeso
+
+networks:
+    api_moteequeso:
