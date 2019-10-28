@@ -27,6 +27,7 @@ namespace MoteeQueso.Core.Services
                     entities.PRODUCTO.Add(product);
                     entities.SaveChanges();
                 }
+                scope.Complete();
             }
 
             return product;
@@ -34,13 +35,18 @@ namespace MoteeQueso.Core.Services
 
         public PRODUCTO GetProductById(int id)
         {
+            PRODUCTO product;
+
             using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
             {
                 using (B2CEntities entities = new B2CEntities())
                 {
-                    return entities.PRODUCTO.Where(x => x.ID == id).FirstOrDefault();
+                    product =  entities.PRODUCTO.Where(x => x.ID == id).FirstOrDefault();
                 }
+                scope.Complete();
+                
             }
+            return product;
         }
     }
 }
