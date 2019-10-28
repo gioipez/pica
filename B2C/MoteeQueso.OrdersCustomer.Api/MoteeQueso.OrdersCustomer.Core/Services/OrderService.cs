@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Transactions;
 
 namespace MoteeQueso.OrdersCustomer.Core.Services
 {
@@ -20,42 +21,44 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
 
             if (customer != null)
             {
-                using (B2CEntities entities = new B2CEntities())
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
                 {
-
-                    order = new Orders
+                    using (B2CEntities entities = new B2CEntities())
                     {
-                        OrdId = Guid.NewGuid(),
-                        CustId = customer.CustId,
-                        OrderDate = DateTime.Now,
-                        Price = orderBo.Price,
-                        Status = "Create",
-                        Comments = orderBo.Comments
-                    };
-
-                    entities.Orders.Add(order);
-
-                    entities.SaveChanges();
-
-                    foreach (ItemsBO itemBO in orderBo.Items)
-                    {
-                        ProductBO product = GetProductById(itemBO.ProdId);
-                        Items item = new Items
+                        order = new Orders
                         {
-                            ItemId = Guid.NewGuid(),
-                            PartNum = "",
-                            Price = itemBO.Price,
-                            ProdId = product.ID,
-                            ProductName = product.ESPECTACULO,
-                            Quantity = itemBO.Quantity,
-                            OrdId = order.OrdId
+                            OrdId = Guid.NewGuid(),
+                            CustId = customer.CustId,
+                            OrderDate = DateTime.Now,
+                            Price = orderBo.Price,
+                            Status = "Create",
+                            Comments = orderBo.Comments
                         };
 
-                        entities.Items.Add(item);
+                        entities.Orders.Add(order);
 
-                        
+                        entities.SaveChanges();
+
+                        foreach (ItemsBO itemBO in orderBo.Items)
+                        {
+                            ProductBO product = GetProductById(itemBO.ProdId);
+                            Items item = new Items
+                            {
+                                ItemId = Guid.NewGuid(),
+                                PartNum = "",
+                                Price = itemBO.Price,
+                                ProdId = product.ID,
+                                ProductName = product.ESPECTACULO,
+                                Quantity = itemBO.Quantity,
+                                OrdId = order.OrdId
+                            };
+
+                            entities.Items.Add(item);
+
+                        }
+                        entities.SaveChanges();
                     }
-                    entities.SaveChanges();
+                    scope.Complete();
                 }
             }
 
