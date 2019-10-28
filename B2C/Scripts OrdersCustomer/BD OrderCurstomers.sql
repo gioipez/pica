@@ -44,4 +44,15 @@ values ('1013605535','Yesid','Gutierrez', '301425784','sdfs@dfsd.com','123456','
 /*
 select * from Customer
 
+truncate table Customer
+truncate table Orders
+truncate table Items
+
 */
+
+Declare @ordid varchar(100) = '0a03a232-fbb9-49ef-955d-f70db7bbd411'
+begin 
+select * from Orders where ordid = @ordid
+
+select * from Items where ordid = @ordid
+end
