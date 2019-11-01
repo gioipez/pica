@@ -4933,23 +4933,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Users\\Elver Florez\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
+      "projectUniqueName": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
       "projectName": "MoteeQueso.Infraestructure",
-      "projectPath": "c:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "c:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\obj\\",
+      "projectPath": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj",
+      "packagesPath": "C:\\Users\\Elver Florez\\.nuget\\packages\\",
+      "outputPath": "D:\\ELVER\\GITHUB\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Elver Florez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4957,7 +4957,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://developer.infotracktest.com/Nuget/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

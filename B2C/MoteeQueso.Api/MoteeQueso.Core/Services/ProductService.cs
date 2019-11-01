@@ -1,16 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MoteeQueso.Core.Interfaces;
+﻿using MoteeQueso.Core.Interfaces;
 using MoteeQueso.Infraestructure.Data;
 using MoteeQueso.Infraestructure.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 
 namespace MoteeQueso.Core.Services
 {
     public class ProductService : IProductService
     {
-        public List<PRODUCTO> GetProducts(int page=1, int count=10)
+        public List<PRODUCTO> GetProducts(int page, int count)
         {
             using (B2CEntities entities = new B2CEntities())
             {
@@ -20,14 +18,10 @@ namespace MoteeQueso.Core.Services
 
         public PRODUCTO CreateProduct(PRODUCTO product)
         {
-            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            using (B2CEntities entities = new B2CEntities())
             {
-                using (B2CEntities entities = new B2CEntities())
-                {
-                    entities.producto.Add(product);
-                    entities.SaveChanges();
-                }
-                scope.Complete();
+                entities.producto.Add(product);
+                entities.SaveChanges();
             }
 
             return product;
@@ -35,18 +29,10 @@ namespace MoteeQueso.Core.Services
 
         public PRODUCTO GetProductById(int id)
         {
-            PRODUCTO product;
-
-            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            using (B2CEntities entities = new B2CEntities())
             {
-                using (B2CEntities entities = new B2CEntities())
-                {
-                    product =  entities.producto.Where(x => x.id == id).FirstOrDefault();
-                }
-                scope.Complete();
-                
+                return entities.producto.FirstOrDefault(x => x.id == id);
             }
-            return product;
         }
     }
 }
