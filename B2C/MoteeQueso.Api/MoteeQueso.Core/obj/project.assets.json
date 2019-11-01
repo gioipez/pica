@@ -2937,11 +2937,12 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
+      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -3198,11 +3199,12 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6548,38 +6550,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/giovanni.lopez/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Core\\MoteeQueso.Core.csproj",
+      "projectUniqueName": "/Users/giovanni.lopez/Develop/PICA/pica/B2C/MoteeQueso.Api/MoteeQueso.Core/MoteeQueso.Core.csproj",
       "projectName": "MoteeQueso.Core",
-      "projectPath": "C:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Core\\MoteeQueso.Core.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Core\\obj\\",
+      "projectPath": "/Users/giovanni.lopez/Develop/PICA/pica/B2C/MoteeQueso.Api/MoteeQueso.Core/MoteeQueso.Core.csproj",
+      "packagesPath": "/Users/giovanni.lopez/.nuget/packages/",
+      "outputPath": "/Users/giovanni.lopez/Develop/PICA/pica/B2C/MoteeQueso.Api/MoteeQueso.Core/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/giovanni.lopez/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://developer.infotracktest.com/Nuget/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj": {
-              "projectPath": "C:\\Proyectos\\Universidad\\PICA\\pica\\B2C\\MoteeQueso.Api\\MoteeQueso.Infraestructure\\MoteeQueso.Infraestructure.csproj"
+            "/Users/giovanni.lopez/Develop/PICA/pica/B2C/MoteeQueso.Api/MoteeQueso.Infraestructure/MoteeQueso.Infraestructure.csproj": {
+              "projectPath": "/Users/giovanni.lopez/Develop/PICA/pica/B2C/MoteeQueso.Api/MoteeQueso.Infraestructure/MoteeQueso.Infraestructure.csproj"
             }
           }
         }
@@ -6607,7 +6602,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

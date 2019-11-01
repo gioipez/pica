@@ -5,7 +5,7 @@ namespace MoteeQueso.Core.Interfaces
 {
     public interface IProductService
     {
-        List<PRODUCTO> GetProducts();
+        List<PRODUCTO> GetProducts(int page, int count);
         PRODUCTO CreateProduct(PRODUCTO product);
         PRODUCTO GetProductById(int id);
     }

@@ -26,9 +26,9 @@ namespace MoteeQueso.Api.Controllers
         /// </summary>
         /// <returns>Lista de productos</returns>
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts(int page, int count)
         {
-            List<PRODUCTO> products = await Task.Run(() => products = productService.GetProducts());
+            List<PRODUCTO> products = await Task.Run(() => products = productService.GetProducts(page, count));
 
             List<ProductViewModel> productViewModels = new List<ProductViewModel>();
 
@@ -52,6 +52,7 @@ namespace MoteeQueso.Api.Controllers
             return Ok(productViewModels);
         }
 
+        
         /// <summary>
         /// Creacion de productos
         /// </summary>

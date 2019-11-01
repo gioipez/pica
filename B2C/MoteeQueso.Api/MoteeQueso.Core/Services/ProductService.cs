@@ -10,11 +10,11 @@ namespace MoteeQueso.Core.Services
 {
     public class ProductService : IProductService
     {
-        public List<PRODUCTO> GetProducts()
+        public List<PRODUCTO> GetProducts(int page, int count)
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.PRODUCTO.ToList();
+                return entities.PRODUCTO.Skip((page - 1) * count).Take(count).ToList();
             }
         }
 
