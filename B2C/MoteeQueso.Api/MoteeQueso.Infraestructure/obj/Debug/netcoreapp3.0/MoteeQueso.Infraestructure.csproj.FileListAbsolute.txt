@@ -9,7 +9,6 @@ D:\ELVER\GITHUB\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\net
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.deps.json
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.pdb
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.csprojAssemblyReference.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.AssemblyInfoInputs.cache
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.AssemblyInfo.cs
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Infraestructure\obj\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll

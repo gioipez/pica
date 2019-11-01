@@ -11,7 +11,7 @@ namespace MoteeQueso.Infraestructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"data source=tb-productos.cktjmln9ob1w.us-west-2.rds.amazonaws.com;Integrated Security=false;Initial Catalog=productos;user id=administrator;password=qwerty09876;");
+            optionsBuilder.UseNpgsql(@"Server=40.121.203.28;Port=5432;Database=productos;User Id=administrator;Password=qwerty09876;");
         }
     }
 }

@@ -142,13 +142,10 @@ C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\n
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.Data.SqlClient.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.Identity.Client.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -168,7 +165,6 @@ C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\n
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Configuration.ConfigurationManager.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Data.SqlClient.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Resources.Extensions.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Runtime.Caching.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\System.Security.Cryptography.ProtectedData.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -222,15 +218,11 @@ C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\n
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win-arm64\native\sni.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win-x64\native\sni.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\sni.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
-C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Core.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\MoteeQueso.Infraestructure.dll
@@ -246,3 +238,5 @@ C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\n
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.dll
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.pdb
 C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\obj\Debug\netcoreapp3.0\MoteeQueso.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Npgsql.dll
+C:\Proyectos\Universidad\PICA\pica\B2C\MoteeQueso.Api\MoteeQueso.Api\bin\Debug\netcoreapp3.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

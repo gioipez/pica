@@ -65,7 +65,7 @@ INSERT INTO CIUDAD VALUES ('Bogotá D.C.', 'Colombia', 1)
 
 /* Consultas
 	
-	select top 10 * from PRODUCTO
+	select count(id) from PRODUCTO
 	select * from TARIFA_HOSPEDAJE
 	select * from TARIFA_CIUDAD
 	select * from TARIFA_TRANSPORTE

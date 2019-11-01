@@ -50,9 +50,9 @@ truncate table Items
 
 */
 
-Declare @ordid varchar(100) = '0a03a232-fbb9-49ef-955d-f70db7bbd411'
+Declare @ordid varchar(100) = 'C19ABCA1-374A-483F-AFC8-B6F8AF2ABDE0'
 begin 
-select * from Orders where ordid = @ordid
+select * from Orders with(nolock) where ordid = @ordid
 
-select * from Items where ordid = @ordid
+select * from Items with(nolock) where ordid = @ordid
 end
