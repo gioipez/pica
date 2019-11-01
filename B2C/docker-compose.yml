@@ -1,6 +1,17 @@
 version: '3.4'
 
 services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=administrator
+      - POSTGRES_PASSWORD=qwerty09876
+      - POSTGRES_DB=productos
+    volumes:
+      - ./volumes/data/db:/var/lib/postgresql/data
+    ports:
+       - 5432:5432
+
   apib2c:
     image: apib2c
     build:

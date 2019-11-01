@@ -26,7 +26,7 @@ namespace MoteeQueso.Api.Controllers
         /// </summary>
         /// <returns>Lista de productos</returns>
         [HttpGet]
-        public async Task<IActionResult> GetProducts(int page, int count)
+        public async Task<IActionResult> GetProducts(int page=1, int count=10)
         {
             List<PRODUCTO> products = await Task.Run(() => products = productService.GetProducts(page, count));
 

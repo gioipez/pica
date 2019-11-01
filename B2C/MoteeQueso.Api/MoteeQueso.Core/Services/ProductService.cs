@@ -10,7 +10,7 @@ namespace MoteeQueso.Core.Services
 {
     public class ProductService : IProductService
     {
-        public List<PRODUCTO> GetProducts(int page, int count)
+        public List<PRODUCTO> GetProducts(int page=1, int count=10)
         {
             using (B2CEntities entities = new B2CEntities())
             {
