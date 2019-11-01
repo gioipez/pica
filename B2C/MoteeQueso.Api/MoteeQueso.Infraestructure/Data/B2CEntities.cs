@@ -5,7 +5,7 @@ namespace MoteeQueso.Infraestructure.Data
 {
     public class B2CEntities : DbContext
     {        
-        public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }
+        public virtual DbSet<PRODUCTO> producto { get; set; }
         //public virtual DbSet<Customer> Customers { get; set; }
         //public virtual DbSet<Order> Orders { get; set; }
 

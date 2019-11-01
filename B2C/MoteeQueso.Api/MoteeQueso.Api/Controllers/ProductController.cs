@@ -36,15 +36,15 @@ namespace MoteeQueso.Api.Controllers
             {
                 productViewModels.Add(new ProductViewModel
                 {
-                    ID = product.ID,
-                    CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
-                    ESPECTACULO = product.ESPECTACULO,
-                    FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
-                    FECHA_LLEGADA = product.FECHA_LLEGADA,
-                    FECHA_SALIDA = product.FECHA_SALIDA,
-                    TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
-                    TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
-                    TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
+                    ID = product.id,
+                    CIUDAD_ESPECTACULO = product.ciudad_espectaculo,
+                    ESPECTACULO = product.espectaculo,
+                    FECHA_ESPECTACULO = product.fecha_espectaculo,
+                    FECHA_LLEGADA = product.fecha_llegada,
+                    FECHA_SALIDA = product.fecha_salida,
+                    TIPO_ESPECTACULO = product.tipo_espectaculo,
+                    TIPO_OSPEDAJE = product.tipo_ospedaje,
+                    TIPO_TRANSPORTE = product.tipo_transporte
 
                 });
             }
@@ -63,14 +63,14 @@ namespace MoteeQueso.Api.Controllers
         {
             PRODUCTO producto = new PRODUCTO
             {
-                CIUDAD_ESPECTACULO = product.CIUDAD_ESPECTACULO,
-                ESPECTACULO = product.ESPECTACULO,
-                FECHA_ESPECTACULO = product.FECHA_ESPECTACULO,
-                FECHA_LLEGADA = product.FECHA_LLEGADA,
-                FECHA_SALIDA = product.FECHA_SALIDA,
-                TIPO_ESPECTACULO = product.TIPO_ESPECTACULO,
-                TIPO_OSPEDAJE = product.TIPO_OSPEDAJE,
-                TIPO_TRANSPORTE = product.TIPO_TRANSPORTE
+                ciudad_espectaculo = product.CIUDAD_ESPECTACULO,
+                espectaculo = product.ESPECTACULO,
+                fecha_espectaculo = product.FECHA_ESPECTACULO,
+                fecha_llegada = product.FECHA_LLEGADA,
+                fecha_salida = product.FECHA_SALIDA,
+                tipo_espectaculo = product.TIPO_ESPECTACULO,
+                tipo_ospedaje = product.TIPO_OSPEDAJE,
+                tipo_transporte = product.TIPO_TRANSPORTE
             };
 
             producto = await Task.Run(() => productService.CreateProduct(producto));

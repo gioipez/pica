@@ -5,15 +5,15 @@ namespace MoteeQueso.Infraestructure.Entities {
     public class PRODUCTO {
 
         [Key]
-        public int ID { get; set; }
-        public string ESPECTACULO { get; set; }
-        public DateTime FECHA_ESPECTACULO { get; set; }
-        public string CIUDAD_ESPECTACULO { get; set; }
-        public DateTime FECHA_LLEGADA { get; set; }
-        public DateTime FECHA_SALIDA { get; set; }
-        public int TIPO_TRANSPORTE { get; set; }
-        public int TIPO_ESPECTACULO { get; set; }
-        public int TIPO_OSPEDAJE { get; set; }
+        public int id { get; set; }
+        public string espectaculo { get; set; }
+        public DateTime fecha_espectaculo { get; set; }
+        public string ciudad_espectaculo { get; set; }
+        public DateTime fecha_llegada { get; set; }
+        public DateTime fecha_salida { get; set; }
+        public int tipo_transporte { get; set; }
+        public int tipo_espectaculo { get; set; }
+        public int tipo_ospedaje { get; set; }
 
     }
 

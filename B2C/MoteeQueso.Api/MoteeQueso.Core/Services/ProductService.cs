@@ -14,7 +14,7 @@ namespace MoteeQueso.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.PRODUCTO.Skip((page - 1) * count).Take(count).ToList();
+                return entities.producto.Skip((page - 1) * count).Take(count).ToList();
             }
         }
 
@@ -24,7 +24,7 @@ namespace MoteeQueso.Core.Services
             {
                 using (B2CEntities entities = new B2CEntities())
                 {
-                    entities.PRODUCTO.Add(product);
+                    entities.producto.Add(product);
                     entities.SaveChanges();
                 }
                 scope.Complete();
@@ -41,7 +41,7 @@ namespace MoteeQueso.Core.Services
             {
                 using (B2CEntities entities = new B2CEntities())
                 {
-                    product =  entities.PRODUCTO.Where(x => x.ID == id).FirstOrDefault();
+                    product =  entities.producto.Where(x => x.id == id).FirstOrDefault();
                 }
                 scope.Complete();
                 
