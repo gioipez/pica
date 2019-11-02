@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MoteeQueso.Api.ViewModels;
 using MoteeQueso.Core.Interfaces;
@@ -18,17 +15,20 @@ namespace MoteeQueso.Api.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService productService;
-        public ProductController() {
+
+        public ProductController()
+        {
             productService = new ProductService();
         }
+
         /// <summary>
         /// Consultar productos (Escenario sin autorizacion)
         /// </summary>
         /// <returns>Lista de productos</returns>
         [HttpGet]
-        public async Task<IActionResult> GetProducts(int page=1, int count=10)
+        public async Task<IActionResult> GetProducts(int page = 1, int count = 10)
         {
-            List<PRODUCTO> products = await Task.Run(() => products = productService.GetProducts(page, count));
+            List<PRODUCTO> products = await productService.GetProducts(page, count);
 
             List<ProductViewModel> productViewModels = new List<ProductViewModel>();
 
@@ -52,7 +52,7 @@ namespace MoteeQueso.Api.Controllers
             return Ok(productViewModels);
         }
 
-        
+
         /// <summary>
         /// Creacion de productos
         /// </summary>
@@ -73,9 +73,9 @@ namespace MoteeQueso.Api.Controllers
                 tipo_transporte = product.TIPO_TRANSPORTE
             };
 
-            producto = await Task.Run(() => productService.CreateProduct(producto));
+            producto = await productService.CreateProduct(producto);
 
-            return Ok(producto);
+            return Ok(producto.id);
         }
 
         /// <summary>
@@ -86,9 +86,8 @@ namespace MoteeQueso.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
-            PRODUCTO product = await Task.Run(() => product = productService.GetProductById(id) );
+            PRODUCTO product = await productService.GetProductById(id);
             return Ok(product);
         }
-    
     }
 }
