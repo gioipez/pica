@@ -37,7 +37,7 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
 
             customer = await Task.Run(() => customer = customerService.Create(customer));
 
-            return Ok(customer.CustId);
+            return Ok(customer.custid);
         }
 
         [HttpGet]

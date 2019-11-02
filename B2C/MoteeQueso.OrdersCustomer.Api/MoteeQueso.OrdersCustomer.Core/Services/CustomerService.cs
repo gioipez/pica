@@ -14,7 +14,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                entities.Customer.Add(customer);
+                entities.customer.Add(customer);
                 entities.SaveChanges();
             }
 
@@ -25,7 +25,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Customer.Where(x => x.CustId.Equals(CustId)).FirstOrDefault();
+                return entities.customer.Where(x => x.custid.Equals(CustId)).FirstOrDefault();
             }
 
         }
@@ -34,7 +34,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Customer.ToList();
+                return entities.customer.ToList();
             }
         }
     }
