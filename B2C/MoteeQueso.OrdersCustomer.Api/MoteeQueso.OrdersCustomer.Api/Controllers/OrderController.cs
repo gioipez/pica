@@ -40,7 +40,7 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
 
             Orders order = await Task.Run(() => order = orderService.Create(orderBo));
 
-            return Ok(order.OrdId);
+            return Ok(order.ordid);
         }
 
         public async Task<IActionResult> GetOrderById(string ordId) {

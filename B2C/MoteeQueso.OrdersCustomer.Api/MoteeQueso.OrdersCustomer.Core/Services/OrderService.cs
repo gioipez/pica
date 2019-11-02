@@ -27,15 +27,15 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
                     {
                         order = new Orders
                         {
-                            OrdId = Guid.NewGuid(),
-                            CustId = customer.CustId,
-                            OrderDate = DateTime.Now,
-                            Price = orderBo.Price,
-                            Status = "Create",
-                            Comments = orderBo.Comments
+                            ordid = Guid.NewGuid(),
+                            custid = customer.custid,
+                            orderdate = DateTime.Now,
+                            price = orderBo.Price,
+                            status = "Create",
+                            comments = orderBo.Comments
                         };
 
-                        entities.Orders.Add(order);
+                        entities.orders.Add(order);
 
                         entities.SaveChanges();
 
@@ -44,16 +44,16 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
                             ProductBO product = GetProductById(itemBO.ProdId);
                             Items item = new Items
                             {
-                                ItemId = Guid.NewGuid(),
-                                PartNum = "",
-                                Price = itemBO.Price,
-                                ProdId = product.ID,
-                                ProductName = product.ESPECTACULO,
-                                Quantity = itemBO.Quantity,
-                                OrdId = order.OrdId
+                                itemid = Guid.NewGuid(),
+                                partnum = "",
+                                price = itemBO.Price,
+                                prodid = product.ID,
+                                productname = product.ESPECTACULO,
+                                quantity = itemBO.Quantity,
+                                ordid = order.ordid
                             };
 
-                            entities.Items.Add(item);
+                            entities.items.Add(item);
 
                         }
                         entities.SaveChanges();
@@ -69,7 +69,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Orders.Where(x => x.OrdId == ordId).FirstOrDefault();
+                return entities.orders.Where(x => x.ordid == ordId).FirstOrDefault();
             }
         }
 
@@ -85,7 +85,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Customer.Where(x => x.CustId.Equals(custId)).FirstOrDefault();
+                return entities.customer.Where(x => x.custid.Equals(custId)).FirstOrDefault();
             }
         }
     }

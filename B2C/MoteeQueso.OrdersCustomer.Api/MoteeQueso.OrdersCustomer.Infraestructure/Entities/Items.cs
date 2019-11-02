@@ -5,13 +5,13 @@ namespace MoteeQueso.OrdersCustomer.Infraestructure.Entities {
     public class Items {
 
         [Key]
-        public Guid ItemId { get; set; }
-        public int ProdId { get; set; }
-        public string ProductName { get; set; }
-        public string PartNum { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public Guid OrdId { get; set; }
+        public Guid itemid { get; set; }
+        public int prodid { get; set; }
+        public string productname { get; set; }
+        public string partnum { get; set; }
+        public decimal price { get; set; }
+        public int quantity { get; set; }
+        public Guid ordid { get; set; }
 
     }
 }

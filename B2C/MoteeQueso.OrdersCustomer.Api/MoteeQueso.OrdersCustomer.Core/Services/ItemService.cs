@@ -13,7 +13,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services {
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                entities.Items.Add(item);
+                entities.items.Add(item);
                 entities.SaveChanges();
             }
 
@@ -24,7 +24,7 @@ namespace MoteeQueso.OrdersCustomer.Core.Services {
         {
             using (B2CEntities entities = new B2CEntities())
             {
-                return entities.Items.ToList();
+                return entities.items.ToList();
             }
         }
     }

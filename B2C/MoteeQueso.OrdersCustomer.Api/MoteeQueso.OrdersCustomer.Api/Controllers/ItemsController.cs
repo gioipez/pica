@@ -37,12 +37,12 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
             {
                 itemsViewModels.Add(new ItemsViewModel
                 {
-                    ItemId = item.ItemId,
-                    PartNum = item.PartNum,
-                    Price = item.Price,
-                    ProdId = item.ProdId,
-                    ProductName = item.ProductName,
-                    Quantity = item.Quantity
+                    ItemId = item.itemid,
+                    PartNum = item.partnum,
+                    Price = item.price,
+                    ProdId = item.prodid,
+                    ProductName = item.productname,
+                    Quantity = item.quantity
                 });
             }
 
@@ -59,12 +59,12 @@ namespace MoteeQueso.OrdersCustomer.Api.Controllers
         {
             Items itemDB = new Items
             {
-                ItemId = Guid.NewGuid(),
-                PartNum = item.PartNum,
-                Price = item.Price,
-                ProdId = item.ProdId,
-                ProductName = item.ProductName,
-                Quantity = item.Quantity
+                itemid = Guid.NewGuid(),
+                partnum = item.PartNum,
+                price = item.Price,
+                prodid = item.ProdId,
+                productname = item.ProductName,
+                quantity = item.Quantity
             };
 
             itemDB = await Task.Run(() => itemDB = itemsService.CreateItem(itemDB));
