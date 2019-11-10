@@ -16,7 +16,9 @@ namespace MoteeQueso.B2C.Product.Core.Services
             {
                 return await entities.producto.Where(x => x.codigo.Contains(query) ||
                     x.nombre.Contains(query) || x.descripcion.Contains(query))
-                    .Skip((page - 1) * count).Take(count).ToListAsync();
+                    .Skip((page - 1) * count)
+                    .Take(count)
+                    .ToListAsync();
             }
         }
 
@@ -24,7 +26,11 @@ namespace MoteeQueso.B2C.Product.Core.Services
         {
             using (B2CProductEntities entities = new B2CProductEntities())
             {
-                return await entities.producto.Include(x => x.ciudad)
+                return await entities.producto
+                    .Include(x => x.ciudad).ThenInclude(x => x.tarifa_ciudad)
+                    .Include(x => x.tarifa_espectaculo)
+                    .Include(x => x.tarifa_hospedaje)
+                    .Include(x => x.tarifa_transporte)
                     .FirstOrDefaultAsync(x => x.id == id);
             }
         }

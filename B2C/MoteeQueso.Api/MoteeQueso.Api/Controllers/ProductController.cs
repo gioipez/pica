@@ -21,47 +21,65 @@ namespace MoteeQueso.B2C.Product.Api.Controllers
             productService = new ProductService();
         }
 
-        [HttpGet()]
-        public async Task<IActionResult> GetProducts(string query, int page = 1, int count = 5)
+        [HttpGet]
+        public async Task<IActionResult> GetProducts(int? id, string query, int page = 1, int count = 5)
         {
-            List<producto> productos = await productService.GetProductsByQuery(query, page, count);
-
-            List<ProductViewModel> productViewModels = new List<ProductViewModel>();
-
-            foreach (producto producto in productos)
+            if (id.HasValue)
             {
-                productViewModels.Add(new ProductViewModel
+                producto producto = await productService.GetProductById(id.Value);
+
+                if (producto != null)
                 {
-                    id = producto.id,
-                    codigo = producto.codigo,
-                    nombre = producto.nombre,
-                    url_imagen = producto.url_imagen
-                });
+                    ProductDetailViewModel productDetailViewModel = new ProductDetailViewModel
+                    {
+                        id = producto.id,
+                        codigo = producto.codigo,
+                        nombre = producto.nombre,
+                        descripcion = producto.descripcion,
+                        url_imagen = producto.url_imagen,
+                        fecha_espectaculo = producto.fecha_espectaculo,
+                        fecha_llegada = producto.fecha_llegada,
+                        fecha_salida = producto.fecha_salida,
+                        ciudad = producto.ciudad.nombre,
+                        precio = (producto.ciudad.tarifa_ciudad.precio
+                        + producto.tarifa_espectaculo.precio
+                        + producto.tarifa_hospedaje.precio
+                        + producto.tarifa_transporte.precio)
+                    };
+
+                    return Ok(productDetailViewModel);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-
-            return Ok(productViewModels);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProduct(int id)
-        {
-            producto producto = await productService.GetProductById(id);
-
-            ProductDetailViewModel productDetailViewModel = new ProductDetailViewModel
+            else
             {
-                id = producto.id,
-                codigo = producto.codigo,
-                nombre = producto.nombre,
-                descripcion = producto.descripcion,
-                url_imagen = producto.url_imagen,
-                fecha_espectaculo = producto.fecha_espectaculo,
-                fecha_llegada = producto.fecha_llegada,
-                fecha_salida = producto.fecha_salida,
-                ciudad = producto.ciudad.nombre,
-                precio = 0
-            };
+                List<producto> productos = await productService.GetProductsByQuery(query, page, count);
 
-            return Ok(productDetailViewModel);
+                if (productos.Count > 0)
+                {
+                    List<ProductViewModel> productViewModels = new List<ProductViewModel>();
+
+                    foreach (producto producto in productos)
+                    {
+                        productViewModels.Add(new ProductViewModel
+                        {
+                            id = producto.id,
+                            codigo = producto.codigo,
+                            nombre = producto.nombre,
+                            url_imagen = producto.url_imagen
+                        });
+                    }
+
+                    return Ok(productViewModels);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
         }
     }
 }

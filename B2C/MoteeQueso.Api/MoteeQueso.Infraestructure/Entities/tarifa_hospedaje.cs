@@ -10,5 +10,7 @@ namespace MoteeQueso.B2C.Product.Infraestructure.Entities
         public string nombre_tipo { get; set; }
 
         public decimal precio { get; set; }
+
+        public producto producto { get; set; }
     }
 }

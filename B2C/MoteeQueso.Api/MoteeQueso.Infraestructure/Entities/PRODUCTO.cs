@@ -30,5 +30,11 @@ namespace MoteeQueso.B2C.Product.Infraestructure.Entities {
         public int tarifa_hospedaje_id { get; set; }
 
         public ciudad ciudad { get; set; }
+
+        public tarifa_transporte tarifa_transporte { get; set; }
+
+        public tarifa_espectaculo tarifa_espectaculo { get; set; }
+
+        public tarifa_hospedaje tarifa_hospedaje { get; set; }
     }
 }
