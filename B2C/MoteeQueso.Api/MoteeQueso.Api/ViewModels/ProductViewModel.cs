@@ -1,17 +1,15 @@
 ﻿using System;
 
-namespace MoteeQueso.Api.ViewModels
+namespace MoteeQueso.B2C.Product.Api.ViewModels
 {
     public class ProductViewModel
     {
-        public int ID { get; set; }
-        public string ESPECTACULO { get; set; }
-        public DateTime FECHA_ESPECTACULO { get; set; }
-        public string CIUDAD_ESPECTACULO { get; set; }
-        public DateTime FECHA_LLEGADA { get; set; }
-        public DateTime FECHA_SALIDA { get; set; }
-        public int TIPO_TRANSPORTE { get; set; }
-        public int TIPO_ESPECTACULO { get; set; }
-        public int TIPO_OSPEDAJE { get; set; }
+        public int id { get; set; }
+
+        public string codigo { get; set; }
+
+        public string nombre { get; set; }
+
+        public string url_imagen { get; set; }
     }
 }

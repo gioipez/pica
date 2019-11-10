@@ -1,39 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MoteeQueso.Core.Interfaces;
-using MoteeQueso.Infraestructure.Data;
-using MoteeQueso.Infraestructure.Entities;
+using MoteeQueso.B2C.Product.Core.Interfaces;
+using MoteeQueso.B2C.Product.Infraestructure.Data;
+using MoteeQueso.B2C.Product.Infraestructure.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoteeQueso.Core.Services
+namespace MoteeQueso.B2C.Product.Core.Services
 {
     public class ProductService : IProductService
     {
-        public async Task<List<PRODUCTO>> GetProducts(int page, int count)
+        public async Task<List<producto>> GetProductsByQuery(string query, int page, int count)
         {
-            using (B2CEntities entities = new B2CEntities())
+            using (B2CProductEntities entities = new B2CProductEntities())
             {
-                return await entities.producto.Skip((page - 1) * count).Take(count).ToListAsync();
+                return await entities.producto.Where(x => x.codigo.Contains(query) ||
+                    x.nombre.Contains(query) || x.descripcion.Contains(query))
+                    .Skip((page - 1) * count).Take(count).ToListAsync();
             }
         }
 
-        public async Task<PRODUCTO> CreateProduct(PRODUCTO product)
+        public async Task<producto> GetProductById(int id)
         {
-            using (B2CEntities entities = new B2CEntities())
+            using (B2CProductEntities entities = new B2CProductEntities())
             {
-                entities.producto.Add(product);
-                await entities.SaveChangesAsync();
-            }
-
-            return product;
-        }
-
-        public async Task<PRODUCTO> GetProductById(int id)
-        {
-            using (B2CEntities entities = new B2CEntities())
-            {
-                return await entities.producto.FirstOrDefaultAsync(x => x.id == id);
+                return await entities.producto.Include(x => x.ciudad)
+                    .FirstOrDefaultAsync(x => x.id == id);
             }
         }
     }

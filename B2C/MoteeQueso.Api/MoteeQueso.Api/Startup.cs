@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace MoteeQueso.Api
+namespace MoteeQueso.B2C.Product.Api
 {
     public class Startup
     {

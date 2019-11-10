@@ -1,15 +1,13 @@
-﻿using MoteeQueso.Infraestructure.Entities;
+﻿using MoteeQueso.B2C.Product.Infraestructure.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MoteeQueso.Core.Interfaces
+namespace MoteeQueso.B2C.Product.Core.Interfaces
 {
     public interface IProductService
     {
-        Task<List<PRODUCTO>> GetProducts(int page, int count);
+        Task<List<producto>> GetProductsByQuery(string query, int page, int count);
 
-        Task<PRODUCTO> CreateProduct(PRODUCTO product);
-
-        Task<PRODUCTO> GetProductById(int id);
+        Task<producto> GetProductById(int id);
     }
 }

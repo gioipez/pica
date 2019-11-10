@@ -2,12 +2,12 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using MoteeQueso.Api.ViewModels;
-using MoteeQueso.Core.Interfaces;
-using MoteeQueso.Core.Services;
-using MoteeQueso.Infraestructure.Entities;
+using MoteeQueso.B2C.Product.Api.ViewModels;
+using MoteeQueso.B2C.Product.Core.Interfaces;
+using MoteeQueso.B2C.Product.Core.Services;
+using MoteeQueso.B2C.Product.Infraestructure.Entities;
 
-namespace MoteeQueso.Api.Controllers
+namespace MoteeQueso.B2C.Product.Api.Controllers
 {
     [EnableCors("AllowMyOrigin")]
     [Route("api/[controller]")]
@@ -21,73 +21,47 @@ namespace MoteeQueso.Api.Controllers
             productService = new ProductService();
         }
 
-        /// <summary>
-        /// Consultar productos (Escenario sin autorizacion)
-        /// </summary>
-        /// <returns>Lista de productos</returns>
-        [HttpGet]
-        public async Task<IActionResult> GetProducts(int page = 1, int count = 10)
+        [HttpGet()]
+        public async Task<IActionResult> GetProducts(string query, int page = 1, int count = 5)
         {
-            List<PRODUCTO> products = await productService.GetProducts(page, count);
+            List<producto> productos = await productService.GetProductsByQuery(query, page, count);
 
             List<ProductViewModel> productViewModels = new List<ProductViewModel>();
 
-            foreach (PRODUCTO product in products)
+            foreach (producto producto in productos)
             {
                 productViewModels.Add(new ProductViewModel
                 {
-                    ID = product.id,
-                    CIUDAD_ESPECTACULO = product.ciudad_espectaculo,
-                    ESPECTACULO = product.espectaculo,
-                    FECHA_ESPECTACULO = product.fecha_espectaculo,
-                    FECHA_LLEGADA = product.fecha_llegada,
-                    FECHA_SALIDA = product.fecha_salida,
-                    TIPO_ESPECTACULO = product.tipo_espectaculo,
-                    TIPO_OSPEDAJE = product.tipo_ospedaje,
-                    TIPO_TRANSPORTE = product.tipo_transporte
-
+                    id = producto.id,
+                    codigo = producto.codigo,
+                    nombre = producto.nombre,
+                    url_imagen = producto.url_imagen
                 });
             }
 
             return Ok(productViewModels);
         }
 
-
-        /// <summary>
-        /// Creacion de productos
-        /// </summary>
-        /// <param name="product"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public async Task<IActionResult> Create(ProductViewModel product)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
         {
-            PRODUCTO producto = new PRODUCTO
+            producto producto = await productService.GetProductById(id);
+
+            ProductDetailViewModel productDetailViewModel = new ProductDetailViewModel
             {
-                ciudad_espectaculo = product.CIUDAD_ESPECTACULO,
-                espectaculo = product.ESPECTACULO,
-                fecha_espectaculo = product.FECHA_ESPECTACULO,
-                fecha_llegada = product.FECHA_LLEGADA,
-                fecha_salida = product.FECHA_SALIDA,
-                tipo_espectaculo = product.TIPO_ESPECTACULO,
-                tipo_ospedaje = product.TIPO_OSPEDAJE,
-                tipo_transporte = product.TIPO_TRANSPORTE
+                id = producto.id,
+                codigo = producto.codigo,
+                nombre = producto.nombre,
+                descripcion = producto.descripcion,
+                url_imagen = producto.url_imagen,
+                fecha_espectaculo = producto.fecha_espectaculo,
+                fecha_llegada = producto.fecha_llegada,
+                fecha_salida = producto.fecha_salida,
+                ciudad = producto.ciudad.nombre,
+                precio = 0
             };
 
-            producto = await productService.CreateProduct(producto);
-
-            return Ok(producto.id);
-        }
-
-        /// <summary>
-        /// Consulta peoducto por id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductById(int id)
-        {
-            PRODUCTO product = await productService.GetProductById(id);
-            return Ok(product);
+            return Ok(productDetailViewModel);
         }
     }
 }
