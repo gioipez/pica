@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MoteeQueso.Core\MoteeQueso.B2C.Product.Core.csproj" />
+    <ProjectReference Include="..\Core\MoteeQueso.B2C.Product.Core.csproj" />
+    <ProjectReference Include="..\Infraestructure\MoteeQueso.B2C.Product.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>

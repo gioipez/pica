@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MoteeQueso.B2C.Product.Infraestructure.Entities;
+using System;
 
 namespace MoteeQueso.B2C.Product.Infraestructure.Data
 {
     public class B2CProductEntities : DbContext
-    {        
+    {
         public virtual DbSet<ciudad> ciudad { get; set; }
 
         public virtual DbSet<producto> producto { get; set; }
@@ -16,11 +18,24 @@ namespace MoteeQueso.B2C.Product.Infraestructure.Data
         public virtual DbSet<tarifa_hospedaje> tarifa_hospedaje { get; set; }
 
         public virtual DbSet<tarifa_transporte> tarifa_transporte { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseNpgsql(@"Server=40.121.203.28;Port=5432;Database=productos;User Id=administrator;Password=qwerty09876;");
-            optionsBuilder.UseSqlServer(@"Server=EFLOREZ_PC;Integrated Security=true;Initial Catalog=B2C;");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+            
+            string connectionString = configuration.GetValue<string>("DefaultConnection");
+
+            if (connectionString == "SQLServer")
+            {
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("SQLServer"));
+            }
+            else
+            {
+                optionsBuilder.UseNpgsql(configuration.GetConnectionString("PostgreSQL"));
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MoteeQueso.Infraestructure\MoteeQueso.B2C.Product.Infraestructure.csproj" />
+    <ProjectReference Include="..\Infraestructure\MoteeQueso.B2C.Product.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
