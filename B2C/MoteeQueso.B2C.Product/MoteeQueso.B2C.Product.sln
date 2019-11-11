@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Api", "MoteeQueso.Api\MoteeQueso.B2C.Product.Api.csproj", "{B3E035C4-BA1A-4552-8359-7C1EDD07F5FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Api", "Api\MoteeQueso.B2C.Product.Api.csproj", "{B3E035C4-BA1A-4552-8359-7C1EDD07F5FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Infraestructure", "MoteeQueso.Infraestructure\MoteeQueso.B2C.Product.Infraestructure.csproj", "{22ED9DC4-BCD8-4238-B57F-30CDF57EF0B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Infraestructure", "Infraestructure\MoteeQueso.B2C.Product.Infraestructure.csproj", "{22ED9DC4-BCD8-4238-B57F-30CDF57EF0B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Core", "MoteeQueso.Core\MoteeQueso.B2C.Product.Core.csproj", "{F1566D4A-01E1-4B4B-8D88-B13D77F69342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoteeQueso.B2C.Product.Core", "Core\MoteeQueso.B2C.Product.Core.csproj", "{F1566D4A-01E1-4B4B-8D88-B13D77F69342}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
