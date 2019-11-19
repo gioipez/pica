@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoteeQueso.B2C.Customer.Infraestructure.Entities
 {
@@ -24,5 +25,7 @@ namespace MoteeQueso.B2C.Customer.Infraestructure.Entities
         public credit_card_type credit_card_type { get; set; }
 
         public status status { get; set; }
+
+        public List<address> addresses { get; set; }
     }
 }

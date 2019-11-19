@@ -13,6 +13,8 @@ namespace MoteeQueso.B2C.Customer.Infraestructure.Data
 
         public virtual DbSet<customer> customer { get; set; }
 
+        public virtual DbSet<address> address { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
@@ -34,8 +36,20 @@ namespace MoteeQueso.B2C.Customer.Infraestructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<credit_card_type>().HasOne(p => p.customer).WithOne(p => p.credit_card_type).HasForeignKey<customer>(p => p.credit_card_type_id);
-            builder.Entity<status>().HasOne(p => p.customer).WithOne(p => p.status).HasForeignKey<customer>(p => p.status_id);
+            builder.Entity<credit_card_type>()
+               .HasOne(c => c.customer)
+               .WithOne(e => e.credit_card_type)
+               .HasForeignKey<customer>(b => b.credit_card_type_id);
+
+            builder.Entity<status>()
+               .HasOne(c => c.customer)
+               .WithOne(e => e.status)
+               .HasForeignKey<customer>(b => b.status_id);
+
+            builder.Entity<address>()
+                .HasOne(e => e.customer)
+                .WithMany(c => c.addresses)
+                .HasForeignKey(b => b.customer_id);
         }
     }
 }

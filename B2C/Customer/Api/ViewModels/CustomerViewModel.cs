@@ -1,4 +1,6 @@
-﻿namespace MoteeQueso.B2C.Customer.Api.ViewModels
+﻿using System.Collections.Generic;
+
+namespace MoteeQueso.B2C.Customer.Api.ViewModels
 {
     public class CustomerViewModel
     {
@@ -17,5 +19,7 @@
         public string credit_card_number { get; set; }
 
         public int status_id { get; set; }
+
+        public List<AddressViewModel> addresses { get; set; }
     }
 }
