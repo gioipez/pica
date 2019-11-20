@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+    customers-db:
+        image: postgres:12.0
+        restart: always
+        container_name: "postgres-customers"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=javeriana123
+            - POSTGRES_DB=customers
+        ports:
+            - "5431:5432"
+        networks:
+            - databases
+
+networks:
+    databases:

@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+    db:
+        image: postgres:12.0
+        restart: always
+        container_name: "postgres"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=javeriana123
+            - POSTGRES_DB=product
+        ports:
+            - "5432:5432"
+        networks:
+            - moteequeso
+
+    product:
+        depends_on:
+            - db
+        image: pica/products:1.0.0
+        container_name: "product"
+        build:
+            context: .
+        ports:
+            - "8070:8080"
+        networks:
+            - moteequeso
+
+networks:
+    moteequeso:

@@ -37,6 +37,9 @@ public class MainController {
         nP.setUrl_imagen(productFromBody.getUrl_imagen());
         nP.setCiudad(productFromBody.getCiudad());
         nP.setPrecio(productFromBody.getPrecio());
+        nP.setFecha_espectaculo(productFromBody.getFecha_espectaculo());
+        nP.setFecha_llegada(productFromBody.getFecha_llegada());
+        nP.setFecha_salida(productFromBody.getFecha_salida());
         return productDetailRepository.save(nP);
     }
 

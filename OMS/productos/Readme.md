@@ -4,6 +4,27 @@ This section manage product service for PICA project in the Toures Balon company
 
 This section is done with Java - Spring Boot - Postgres - Docker
 
+# Commands
+
+docker pull postgres:12.0
+docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=javeriana123 -d postgres:12.0
+
+Log in container
+docker exec -it -u 0 postgres bash
+
+create database product;
+GRANT ALL PRIVILEGES ON DATABASE product TO postgres;
+
+spring.jpa.database=POSTGRESQL
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/product
+spring.datasource.username=postgres
+spring.datasource.password=javeriana123
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
 
 
 # Documentation
