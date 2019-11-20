@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[credit_card_type](
+	[id] [int] NOT NULL,
+	[description] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_credit_card_type] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
