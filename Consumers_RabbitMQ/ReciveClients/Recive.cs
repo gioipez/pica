@@ -6,52 +6,71 @@ using Newtonsoft;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using ReciveClients.Modelos;
+using RestSharp;
 
-namespace ReciveClients {
+namespace ReciveClients
+{
 
-    class Program {
+    class Program
+    {
         public const string cola = "QueueClients";
-        static void Main (string[] args) {
-            var factory = new ConnectionFactory () { HostName = "52.170.80.117", Port = 5672 };
+        public const string urlCreateUsrAuth = "http://13.90.244.183/user/";
+        static void Main(string[] args)
+        {
+            var factory = new ConnectionFactory() { HostName = "52.170.80.117", Port = 5672 };
             factory.UserName = "admin";
             factory.Password = "admin";
             factory.VirtualHost = "/";
-            using (var connection = factory.CreateConnection ())
-            using (var channel = connection.CreateModel ()) {
-                channel.QueueDeclare (queue: cola,
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: cola,
                     durable: true,
                     exclusive: false,
                     autoDelete: false,
                     arguments: null);
-                channel.BasicQos (prefetchSize: 0, prefetchCount: 1, global: false);
+                channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 
-                Console.WriteLine (" [*] Waiting for messages.");
+                Console.WriteLine(" [*] Waiting for messages.");
 
-                var consumer = new EventingBasicConsumer (channel);
+                var consumer = new EventingBasicConsumer(channel);
 
-                consumer.Received += (model, ea) => {
-                    
+                consumer.Received += (model, ea) =>
+                {
+
                     var body = ea.Body;
-                    var message = Encoding.UTF8.GetString (body);
+                    var message = Encoding.UTF8.GetString(body);
 
-                    //Console.WriteLine (message);
+                    Console.WriteLine(" [x] " + cola + "=> Received {0}", message);
 
-                    //NotificacionConteo msn = JsonConvert.DeserializeObject<NotificacionConteo> (message.ToString ());
-                    Console.WriteLine (" [x] " + cola + "=> Received {0}", message);
-                    //Console.WriteLine (" [x] " + cola + "=> Received {0}", msn.tipoConteo);
+                    UserAuth userAuth = JsonConvert.DeserializeObject<UserAuth>(message);
+
+                    ClienteRestSharp cliente = new ClienteRestSharp();
+                    IRestResponse response = cliente.Request(urlCreateUsrAuth, Method.POST, userAuth);
+
+                    if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
+                    {
+                        channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                        Console.WriteLine("Ok Response -> {0}", response.Content);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fail, StatusCode -> {0} Response -> {1}", response.StatusCode, response.Content);
+
+                        channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+
+                        IBasicProperties propiedadesCola = channel.CreateBasicProperties();
+                        propiedadesCola.Persistent = true;
+                        //channel.BasicReject(deliveryTag: ea.DeliveryTag, requeue: true);
+                        channel.BasicPublish(string.Empty, cola, propiedadesCola, Encoding.UTF8.GetBytes(message));
+                    }
                     Thread.Sleep(5000);
-
-                    channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-
-                    IBasicProperties propiedadesCola = channel.CreateBasicProperties();
-                    propiedadesCola.Persistent = true;
-                    //channel.BasicReject(deliveryTag: ea.DeliveryTag, requeue: true);
-                    channel.BasicPublish(string.Empty, cola, propiedadesCola, Encoding.UTF8.GetBytes(message));
                 };
-                channel.BasicConsume (queue: cola, autoAck: false, consumer: consumer);
+                channel.BasicConsume(queue: cola, autoAck: false, consumer: consumer);
 
-                Console.WriteLine (" Press [enter] to exit.");
-                Console.ReadLine ();
+                Console.WriteLine(" Press [enter] to exit.");
+                Console.ReadLine();
             }
         }
     }
