@@ -6,8 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
+import org.eclipse.microprofile.faulttolerance.Fallback;
 
 @Controller
 @RequestMapping(path="/producto")
@@ -15,14 +14,21 @@ public class MainController {
     @Autowired
     private ProductDetailRepository productDetailRepository;
 
-
     @GetMapping
+    @Fallback(fallbackMethod = "getProductsFallback")
     public @ResponseBody
     ResponseEntity getProduct(
             @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
             @RequestParam(name = "codigo", required = false, defaultValue = "0") String codigo){
         if (!codigo.equals("0")){
-            return ResponseEntity.ok().body(productDetailRepository.findProudctByCode(codigo));
+            ProductDetail tmpProduct;
+            try {
+                tmpProduct = productDetailRepository.findProudctByCode(codigo);
+            } catch (Exception e) {
+                return ResponseEntity.ok().body("Error during product request!\n");
+            }
+
+            return ResponseEntity.ok().body(tmpProduct);
         }
         Pageable pagesElement = PageRequest.of(page, 5);
         return ResponseEntity.ok().body(productDetailRepository.findAll(pagesElement));
@@ -42,5 +48,7 @@ public class MainController {
         nP.setFecha_salida(productFromBody.getFecha_salida());
         return productDetailRepository.save(nP);
     }
+
+
 
 }
