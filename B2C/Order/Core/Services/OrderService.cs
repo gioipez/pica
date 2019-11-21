@@ -44,11 +44,11 @@ namespace MoteeQueso.B2C.Order.Core.Services
             }
         }
 
-        public Task<order> GetOrder(int id)
+        public async Task<order> GetOrder(int id)
         {
             using (B2COrderEntities entities = new B2COrderEntities())
             {
-                return entities.order.Include(x => x.status)
+                return await entities.order.Include(x => x.status)
                     .Include(x => x.items).FirstOrDefaultAsync(x => x.id == id);
             }
         }
