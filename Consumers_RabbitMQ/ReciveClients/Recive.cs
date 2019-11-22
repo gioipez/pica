@@ -14,7 +14,7 @@ namespace ReciveClients
 
     class Program
     {
-        public const string cola = "QueueClients";
+        public const string cola = "CreateCustomer";
         public const string urlCreateUsrAuth = "http://13.90.244.183/user/";
         static void Main(string[] args)
         {

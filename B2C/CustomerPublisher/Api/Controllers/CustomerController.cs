@@ -9,7 +9,7 @@ using RabbitMQ.Client;
 
 namespace MoteeQueso.B2C.CustomerPublisher.Api.Controllers
 {
-    [EnableCors("AllowMyOrigin")]
+    //[EnableCors("AllowMyOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -35,7 +35,7 @@ namespace MoteeQueso.B2C.CustomerPublisher.Api.Controllers
 
             ConnectionFactory connectionFactory = new ConnectionFactory
             {
-                HostName = configuration.GetValue<string>("RabbitMQ"),
+                HostName = configuration.GetValue<string>("/"),
                 UserName = "admin",
                 Password = "admin",
                 Port = 5672
@@ -47,7 +47,7 @@ namespace MoteeQueso.B2C.CustomerPublisher.Api.Controllers
                 {
                     channel.QueueDeclare(
                         queue: queue,
-                        durable: false,
+                        durable: true,
                         exclusive: false,
                         autoDelete: false,
                         arguments: null);
