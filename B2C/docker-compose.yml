@@ -1,43 +1,23 @@
 version: '3.4'
 
 services:
-  postgres:
-    image: postgres
-    environment:
-      - POSTGRES_USER=administrator
-      - POSTGRES_PASSWORD=qwerty09876
-      - POSTGRES_DB=productos
-    volumes:
-      - ./volumes/data/db:/var/lib/postgresql/data
-    ports:
-       - 5432:5432
-
   apib2c:
-    image: apib2c
+    image: customerpublisherb2c
     build:
-      context: ./MoteeQueso.Api
-      dockerfile: MoteeQueso.Api/Dockerfile
+      context: ./CustomerPublisher
+      dockerfile: Api/Dockerfile
     ports:
-      - "80:80"
+      - "8081:80"
     networks:
       - moteequeso_api
 
   apiordercustomerb2c:
-    image: apiorderscustomerb2c
+    image: customerb2c
     build:
-      context: ./MoteeQueso.OrdersCustomer.Api
-      dockerfile: MoteeQueso.OrdersCustomer.Api/Dockerfile
+      context: ./Customer
+      dockerfile: Api/Dockerfile
     ports:
-      - "8080:80"
-    networks:
-      - moteequeso_api
-
-  stock-service:
-    build:
-        context: ./stock-services
-        dockerfile: ./Dockerfile
-    ports:
-      - "5000:5000"
+      - "8082:80"
     networks:
       - moteequeso_api
 
