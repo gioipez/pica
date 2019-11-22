@@ -35,7 +35,7 @@ namespace MoteeQueso.B2C.CustomerPublisher.Api.Controllers
 
             ConnectionFactory connectionFactory = new ConnectionFactory
             {
-                HostName = configuration.GetValue<string>("/"),
+                HostName = configuration.GetValue<string>("RabbitMQ"),
                 UserName = "admin",
                 Password = "admin",
                 Port = 5672
