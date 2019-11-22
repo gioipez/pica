@@ -15,7 +15,9 @@ namespace ReciveClients
     class Program
     {
         public const string cola = "CreateCustomer";
+        public const string urlCreateCustomer = "http://13.90.244.183:8082/api/customer";
         public const string urlCreateUsrAuth = "http://13.90.244.183/user/";
+
         static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "52.170.80.117", Port = 5672 };
@@ -38,25 +40,34 @@ namespace ReciveClients
 
                 consumer.Received += (model, ea) =>
                 {
-
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
 
                     Console.WriteLine(" [x] " + cola + "=> Received {0}", message);
 
-                    CustomerViewModel userAuth = JsonConvert.DeserializeObject<CustomerViewModel>(message);
+                    CustomerViewModel customer = JsonConvert.DeserializeObject<CustomerViewModel>(message);
+
+                    UserAuth userAuth = new UserAuth()
+                    {
+                        email = customer.email,
+                        is_staff = false,
+                        username = customer.email,
+                        password = customer.password
+                    };
 
                     ClienteRestSharp cliente = new ClienteRestSharp();
-                    IRestResponse response = cliente.Request(urlCreateUsrAuth, Method.POST, userAuth);
+                    IRestResponse responseCustomer = cliente.Request(urlCreateCustomer, Method.POST, customer);
+                    //IRestResponse responseAuth = cliente.Request(urlCreateUsrAuth, Method.POST, userAuth);
 
-                    if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
+                    if (responseCustomer.StatusCode == HttpStatusCode.OK )
                     {
                         channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-                        Console.WriteLine("Ok Response -> {0}", response.Content);
+                        Console.WriteLine("Ok Response Customer -> {0}", responseCustomer.Content);
                     }
                     else
                     {
-                        Console.WriteLine("Fail, StatusCode -> {0} Response -> {1}", response.StatusCode, response.Content);
+                        Console.WriteLine("Fail");
+                        Console.WriteLine(" Customer StatusCode -> {0} Response -> {1}", responseCustomer.StatusCode, responseCustomer.Content);
 
                         channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
 
@@ -65,7 +76,7 @@ namespace ReciveClients
                         //channel.BasicReject(deliveryTag: ea.DeliveryTag, requeue: true);
                         channel.BasicPublish(string.Empty, cola, propiedadesCola, Encoding.UTF8.GetBytes(message));
                     }
-                    Thread.Sleep(5000);
+                    Thread.Sleep(10000);
                 };
                 channel.BasicConsume(queue: cola, autoAck: false, consumer: consumer);
 
