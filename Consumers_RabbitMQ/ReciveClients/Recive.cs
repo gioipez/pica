@@ -44,7 +44,7 @@ namespace ReciveClients
 
                     Console.WriteLine(" [x] " + cola + "=> Received {0}", message);
 
-                    UserAuth userAuth = JsonConvert.DeserializeObject<UserAuth>(message);
+                    CustomerViewModel userAuth = JsonConvert.DeserializeObject<CustomerViewModel>(message);
 
                     ClienteRestSharp cliente = new ClienteRestSharp();
                     IRestResponse response = cliente.Request(urlCreateUsrAuth, Method.POST, userAuth);

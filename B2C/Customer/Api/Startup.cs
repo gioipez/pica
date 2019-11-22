@@ -18,7 +18,7 @@ namespace MoteeQueso.B2C.Customer.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
             services.AddControllers();
             services.AddHealthChecks();
 
@@ -28,7 +28,7 @@ namespace MoteeQueso.B2C.Customer.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors("AllowMyOrigin");
+            //app.UseCors("AllowMyOrigin");
 
             if (env.IsDevelopment())
             {

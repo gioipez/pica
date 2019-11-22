@@ -9,7 +9,6 @@ using MoteeQueso.B2C.Customer.Infraestructure.Entities;
 
 namespace MoteeQueso.B2C.Customer.Api.Controllers
 {
-    [EnableCors("AllowMyOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
