@@ -49,49 +49,42 @@ namespace MoteeQueso.B2C.Customer.Api.Controllers
                 });
             }
 
-            return Ok(await customerService.CreateCustomer(customer));
+            return Ok(await customerService.CreateCustomer(customer, customerViewModel.password));
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateCustomer(CustomerViewModel customerViewModel)
         {
-            try
+            customer customer = new customer
             {
-                customer customer = new customer
-                {
-                    id = customerViewModel.id,
-                    first_name = customerViewModel.first_name,
-                    last_name = customerViewModel.last_name,
-                    phone_number = customerViewModel.phone_number,
-                    email = customerViewModel.email,
-                    credit_card_type_id = customerViewModel.credit_card_type_id,
-                    credit_card_number = customerViewModel.credit_card_number,
-                    status_id = customerViewModel.status_id,
-                    addresses = new List<address>()
-                };
+                id = customerViewModel.id,
+                first_name = customerViewModel.first_name,
+                last_name = customerViewModel.last_name,
+                phone_number = customerViewModel.phone_number,
+                email = customerViewModel.email,
+                credit_card_type_id = customerViewModel.credit_card_type_id,
+                credit_card_number = customerViewModel.credit_card_number,
+                status_id = customerViewModel.status_id,
+                addresses = new List<address>()
+            };
 
-                foreach (AddressViewModel addressViewModel in customerViewModel.addresses)
-                {
-                    customer.addresses.Add(new address
-                    {
-                        id = addressViewModel.id,
-                        street = addressViewModel.street,
-                        address_type = addressViewModel.address_type,
-                        zip = addressViewModel.zip,
-                        city = addressViewModel.city,
-                        state = addressViewModel.state,
-                        country = addressViewModel.country
-                    });
-                }
-
-                await customerService.UpdateCustomer(customer);
-
-                return Ok();
-            }
-            catch (System.Exception ex)
+            foreach (AddressViewModel addressViewModel in customerViewModel.addresses)
             {
-                throw;
+                customer.addresses.Add(new address
+                {
+                    id = addressViewModel.id,
+                    street = addressViewModel.street,
+                    address_type = addressViewModel.address_type,
+                    zip = addressViewModel.zip,
+                    city = addressViewModel.city,
+                    state = addressViewModel.state,
+                    country = addressViewModel.country
+                });
             }
+
+            await customerService.UpdateCustomer(customer, customerViewModel.password);
+
+            return Ok();
         }
     }
 }

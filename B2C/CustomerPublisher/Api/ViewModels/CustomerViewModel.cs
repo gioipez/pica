@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MoteeQueso.B2C.Customer.Api.ViewModels
+namespace MoteeQueso.B2C.CustomerPublisher.Api.ViewModels
 {
     public class CustomerViewModel
     {
