@@ -3,9 +3,11 @@ using Microsoft.Extensions.Configuration;
 using MoteeQueso.B2C.Customer.Core.Interfaces;
 using MoteeQueso.B2C.Customer.Infraestructure.Data;
 using MoteeQueso.B2C.Customer.Infraestructure.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
@@ -82,16 +84,26 @@ namespace MoteeQueso.B2C.Customer.Core.Services
 
             string JWTService = configuration.GetValue<string>("JWTService");
 
-            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(JWTService);
+            user user = new user
+            {
+                username = email,
+                email = email,
+                password = password,
+                is_staff = false
+            };
+
+            string body = JsonConvert.SerializeObject(user);
+            StringContent stringContent = new StringContent(body, Encoding.UTF8, "application/json");
+            HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(JWTService, stringContent);
 
             if (!httpResponseMessage.IsSuccessStatusCode)
             {
                 throw new Exception("Change Password Fail");
             }
-            else
-            {
-                var algo = await httpResponseMessage.Content.ReadAsStringAsync();
-            }
+            //else
+            //{
+            //    var algo = await httpResponseMessage.Content.ReadAsStringAsync();
+            //}
         }
     }
 }
