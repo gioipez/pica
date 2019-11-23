@@ -20,7 +20,8 @@ namespace HiltonBookingService.Api.Controllers
 
             if (success)
             {
-                return Ok(Guid.NewGuid());
+                roomViewModel.filed = Guid.NewGuid();
+                return Ok(roomViewModel);
             }
             else
             {

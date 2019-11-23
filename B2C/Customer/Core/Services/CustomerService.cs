@@ -100,10 +100,6 @@ namespace MoteeQueso.B2C.Customer.Core.Services
             {
                 throw new Exception("Change Password Fail");
             }
-            //else
-            //{
-            //    var algo = await httpResponseMessage.Content.ReadAsStringAsync();
-            //}
         }
     }
 }
