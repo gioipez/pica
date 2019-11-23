@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Api.Models;
@@ -12,6 +11,8 @@ using System.Threading;
 
 namespace Api.Controllers
 {
+    using System.IO;
+
     [Route("api/[controller]")]
     [ApiController]
     public class BolivarianoController : ControllerBase
@@ -58,21 +59,22 @@ namespace Api.Controllers
                 Directory.CreateDirectory(path);
             }
             string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\ArchivosCompartidos\\touresbalon_orden_" + Message.orderId + ".csv";
-            //if ()
-            //{
-            //    // Create a file to write to.   
-            //    using (StreamWriter sw = File.CreateText(filepath))
-            //    {
-            //        sw.WriteLine(Message);
-            //    }
-            //}
-            //else
-            //{
-            //    using (StreamWriter sw = File.AppendText(filepath))
-            //    {
-            //        sw.WriteLine(Message);
-            //    }
-            //}
+            if (System.IO.File.Exists(filepath))
+            {
+                // Create a file to write to.   
+                using (StreamWriter sw = System.IO.File.CreateText(filepath))
+                {
+
+                    sw.WriteLine($"{Message.nombre},{Message.apellido},{Message.fecha_salida},{Message.num_viaje},{Message.num_silla},");
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = System.IO.File.AppendText(filepath))
+                {
+                    sw.WriteLine(Message);
+                }
+            }
             return filepath;
         }
     }
