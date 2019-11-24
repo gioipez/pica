@@ -2,6 +2,7 @@
 {
     public enum provider
     {
-        Hilton = 4
+        Hilton = 4,
+        DanCarlton = 5
     }
 }
