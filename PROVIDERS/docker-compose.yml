@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  americanairlinesprovider:
+    image: americanairlinesprovider
+    build:
+      context: ./AmericanAirlines
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8088:80"
+    networks:
+      - moteequeso_api
+
+  aviancaprovider:
+    image: aviancaprovider
+    build:
+      context: ./Avianca
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8089:80"
+    networks:
+      - moteequeso_api
+
+  bolivarianorovider:
+    image: bolivarianorovider
+    build:
+      context: ./Bolivariano
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8090:80"
+    networks:
+      - moteequeso_api
+
+  hiltonorovider:
+    image: hiltonorovider
+    build:
+      context: ./Hilton
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8091:80"
+    networks:
+      - moteequeso_api
+  
+
+networks:
+    moteequeso_api:
