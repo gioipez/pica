@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MoteeQueso.BROCKER.Lodging.Infraestructure.Entities
 {
-    public class room
+    public class touresbalon_reservations
     {
         public string order_id { get; set; }
 

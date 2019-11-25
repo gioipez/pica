@@ -8,13 +8,13 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Providers
 {
     public class ProviderDataBase : ProviderFactory
     {
-        public override async Task<Guid> Cancel(reserve reserve)
+        public override async Task<bool> Cancel(reserve reserve)
         {
             DataBaseFactory dataBaseFactory = InstanceDataBaseFactory(reserve.provider_id);
             return await dataBaseFactory.Cancel(reserve);
         }
 
-        public override async Task<Guid> Reserve(reserve reserve)
+        public override async Task<bool> Reserve(reserve reserve)
         {
             DataBaseFactory dataBaseFactory = InstanceDataBaseFactory(reserve.provider_id);
             return await dataBaseFactory.Reserve(reserve);

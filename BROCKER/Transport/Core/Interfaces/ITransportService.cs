@@ -6,8 +6,8 @@ namespace MoteeQueso.BROCKER.Transport.Core.Interfaces
 {
     public interface ITransportService
     {
-        Task<Guid> Reserve(reserve reserve);
+        Task<bool> Reserve(reserve reserve);
 
-        Task<Guid> Cancel(reserve reserve);
+        Task<bool> Cancel(reserve reserve);
     }
 }

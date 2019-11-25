@@ -13,12 +13,36 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Providers
     {
         private static readonly HttpClient httpClient = new HttpClient();
 
-        public override async Task<Guid> Cancel(reserve reserve)
+        public override async Task<bool> Cancel(reserve reserve)
         {
-            throw new NotImplementedException();
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            string webServiceHilton = configuration.GetValue<string>("WebServiceHilton");
+            webServiceHilton += "cancelRoom";
+
+            room room = new room
+            {
+                order_id = reserve.order_id.ToString()
+            };
+
+            string body = JsonConvert.SerializeObject(room);
+            StringContent stringContent = new StringContent(body, Encoding.UTF8, "application/json");
+            HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(webServiceHilton, stringContent);
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new Exception(await httpResponseMessage.Content.ReadAsStringAsync());
+            }
         }
 
-        public override async Task<Guid> Reserve(reserve reserve)
+        public override async Task<bool> Reserve(reserve reserve)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -30,9 +54,13 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Providers
 
             room room = new room
             {
-                id = reserve.id,
-                agreement_id = reserve.agreement_id,
-                days = reserve.days
+                order_id = reserve.order_id.ToString(),
+                hotel_id = reserve.hotel_id,
+                room_number = reserve.room_number,
+                check_in_date = reserve.check_in_date,
+                check_out_date = reserve.check_out_date,
+                state = reserve.state,
+                guest_name = reserve.guest_name
             };
 
             string body = JsonConvert.SerializeObject(room);
@@ -41,10 +69,7 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Providers
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
-                string response = await httpResponseMessage.Content.ReadAsStringAsync();
-                room = JsonConvert.DeserializeObject<room>(response);
-                
-                return room.filed;
+                return true;
             }
             else
             {

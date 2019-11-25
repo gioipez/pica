@@ -8,12 +8,13 @@ namespace MoteeQueso.BROCKER.Transport.Core.Providers
 {
     public class ProviderWebService : ProviderFactory
     {
-        public override async Task<Guid> Cancel(reserve reserve)
+        public override async Task<bool> Cancel(reserve reserve)
         {
-            throw new NotImplementedException();
+            WebServiceFactory webServiceFactory = InstanceWebServiceFactory(reserve.provider_id);
+            return await webServiceFactory.Cancel(reserve);
         }
 
-        public override async Task<Guid> Reserve(reserve reserve)
+        public override async Task<bool> Reserve(reserve reserve)
         {
             WebServiceFactory webServiceFactory = InstanceWebServiceFactory(reserve.provider_id);
             return await webServiceFactory.Reserve(reserve);

@@ -7,12 +7,12 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Providers
 {
     public class ProviderFTP : ProviderFactory
     {
-        public override Task<Guid> Cancel(reserve reserve)
+        public override Task<bool> Cancel(reserve reserve)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<Guid> Reserve(reserve reserve)
+        public override Task<bool> Reserve(reserve reserve)
         {
             throw new NotImplementedException();
         }

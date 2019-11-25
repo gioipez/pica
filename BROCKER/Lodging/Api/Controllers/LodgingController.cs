@@ -24,11 +24,15 @@ namespace MoteeQueso.BROCKER.Lodging.Api.Controllers
         {
             reserve reserve = new reserve
             {
-                id = reserveViewModel.id,
                 provider_id = reserveViewModel.provider_id,
                 integration_type_id = reserveViewModel.integration_type_id,
-                agreement_id = reserveViewModel.agreement_id,
-                days = reserveViewModel.days
+                order_id = reserveViewModel.order_id,
+                hotel_id = reserveViewModel.hotel_id,
+                room_number = reserveViewModel.hotel_id,
+                check_in_date = reserveViewModel.check_in_date,
+                check_out_date = reserveViewModel.check_out_date,
+                state = reserveViewModel.state,
+                guest_name = reserveViewModel.guest_name
             };
 
             return Ok(await lodgingService.Reserve(reserve));
@@ -40,7 +44,7 @@ namespace MoteeQueso.BROCKER.Lodging.Api.Controllers
         {
             reserve reserve = new reserve
             {
-                filed = reserveViewModel.filed
+                order_id = reserveViewModel.order_id
             };
 
             return Ok(await lodgingService.Cancel(reserve));

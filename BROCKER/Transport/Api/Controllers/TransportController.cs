@@ -24,11 +24,17 @@ namespace MoteeQueso.BROCKER.Transport.Api.Controllers
         {
             reserve reserve = new reserve
             {
-                id = reserveViewModel.id,
                 provider_id = reserveViewModel.provider_id,
                 integration_type_id = reserveViewModel.integration_type_id,
-                agreement_id = reserveViewModel.agreement_id,
-                tickets = reserveViewModel.tickets
+                order_id = reserveViewModel.order_id,
+                first_name = reserveViewModel.first_name,
+                last_name = reserveViewModel.last_name,
+                departure_date = reserveViewModel.departure_date,
+                departure_hour = reserveViewModel.departure_hour,
+                trip_number = reserveViewModel.trip_number,
+                chair_number = reserveViewModel.chair_number,
+                origin = reserveViewModel.origin,
+                destiny = reserveViewModel.destiny
             };
 
             return Ok(await transportService.Reserve(reserve));
@@ -40,7 +46,7 @@ namespace MoteeQueso.BROCKER.Transport.Api.Controllers
         {
             reserve reserve = new reserve
             {
-                filed = reserveViewModel.filed
+                order_id = reserveViewModel.order_id
             };
 
             return Ok(await transportService.Cancel(reserve));

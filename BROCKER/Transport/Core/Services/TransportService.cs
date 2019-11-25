@@ -10,13 +10,13 @@ namespace MoteeQueso.BROCKER.Transport.Core.Services
 {
     public class TransportService : ITransportService
     {
-        public async Task<Guid> Cancel(reserve reserve)
+        public async Task<bool> Cancel(reserve reserve)
         {
             ProviderFactory providerFactory = InstanceProviderFactory(reserve.integration_type_id);
             return await providerFactory.Cancel(reserve);
         }
 
-        public async Task<Guid> Reserve(reserve reserve)
+        public async Task<bool> Reserve(reserve reserve)
         {
             ProviderFactory providerFactory = InstanceProviderFactory(reserve.integration_type_id);
             return await providerFactory.Reserve(reserve);

@@ -8,12 +8,13 @@ namespace MoteeQueso.BROCKER.Transport.Core.Providers
 {
     public class ProviderFTP : ProviderFactory
     {
-        public override async Task<Guid> Cancel(reserve reserve)
+        public override async Task<bool> Cancel(reserve reserve)
         {
-            throw new NotImplementedException();
+            FTPFactory fTPFactory = InstanceFTPFactory(reserve.provider_id);
+            return await fTPFactory.Cancel(reserve);
         }
 
-        public override async Task<Guid> Reserve(reserve reserve)
+        public override async Task<bool> Reserve(reserve reserve)
         {
             FTPFactory fTPFactory = InstanceFTPFactory(reserve.provider_id);
             return await fTPFactory.Reserve(reserve);

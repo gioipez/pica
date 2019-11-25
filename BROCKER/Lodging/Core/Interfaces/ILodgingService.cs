@@ -6,8 +6,8 @@ namespace MoteeQueso.BROCKER.Lodging.Core.Interfaces
 {
     public interface ILodgingService
     {
-        Task<Guid> Reserve(reserve reserve);
+        Task<bool> Reserve(reserve reserve);
 
-        Task<Guid> Cancel(reserve reserve);
+        Task<bool> Cancel(reserve reserve);
     }
 }

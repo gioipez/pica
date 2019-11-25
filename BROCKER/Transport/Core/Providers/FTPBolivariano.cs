@@ -7,12 +7,12 @@ namespace MoteeQueso.BROCKER.Transport.Core.Providers
 {
     public class FTPBolivariano : FTPFactory
     {
-        public override Task<Guid> Cancel(reserve reserve)
+        public override Task<bool> Cancel(reserve reserve)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<Guid> Reserve(reserve reserve)
+        public override Task<bool> Reserve(reserve reserve)
         {
             throw new NotImplementedException();
         }
