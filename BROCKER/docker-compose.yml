@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  lodgingbrocker:
+    image: lodgingbrocker
+    build:
+      context: ./Lodging
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8086:80"
+    networks:
+      - moteequeso_api
+
+  transportbrocker:
+    image: transportbrocker
+    build:
+      context: ./Transport
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8087:80"
+    networks:
+      - moteequeso_api
+  
+
+networks:
+    moteequeso_api:
