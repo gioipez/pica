@@ -13,4 +13,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "MoteeQueso.B2C.Customer.Api.dll"]
+ENTRYPOINT ["dotnet", "MoteeQueso.BROCKER.Lodging.Api.dll"]
