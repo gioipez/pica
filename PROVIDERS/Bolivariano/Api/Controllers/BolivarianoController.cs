@@ -11,6 +11,8 @@ using System.Threading;
 
 namespace Api.Controllers
 {
+    using OfficeOpenXml;
+    using System.Globalization;
     using System.IO;
 
     [Route("api/[controller]")]
@@ -18,11 +20,13 @@ namespace Api.Controllers
     public class BolivarianoController : ControllerBase
     {
         public bool success = false;
+        public string worksheet = "data";
 
         [HttpPost]
         [Route("reservarPasaje")]
         public IActionResult reservarPasaje(TransporteViewModel transporte)
         {
+
             success = !success;
 
             if (success)
@@ -35,7 +39,7 @@ namespace Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("cancelarTransporte")]
         public IActionResult cancelarTransporte(TransporteViewModel transporte)
         {
@@ -43,7 +47,18 @@ namespace Api.Controllers
 
             if (success)
             {
-                return Ok();
+                string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\ArchivosCompartidos\\touresbalon_orden_" + transporte.orderId + ".csv";
+                if (System.IO.File.Exists(filepath))
+                {
+                    using (StreamWriter sw = System.IO.File.AppendText(filepath))
+                    {
+                        sw. Write($",C");
+                    }
+                    return Ok();
+                }
+                else {
+                    return BadRequest("reserva no existente");
+                }
             }
             else
             {
@@ -59,14 +74,23 @@ namespace Api.Controllers
                 Directory.CreateDirectory(path);
             }
             string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\ArchivosCompartidos\\touresbalon_orden_" + Message.orderId + ".csv";
-            if (System.IO.File.Exists(filepath))
-            {
-                // Create a file to write to.   
-                using (StreamWriter sw = System.IO.File.CreateText(filepath))
-                {
 
-                    sw.WriteLine($"{Message.nombre},{Message.apellido},{Message.fecha_salida},{Message.num_viaje},{Message.num_silla},");
-                }
+            if (!System.IO.File.Exists(filepath))
+            {
+                var records = new object[]
+                                       {
+                                            Message.nombre,
+                                            Message.apellido,
+                                            Message.fecha_salida,
+                                            Message.num_viaje,
+                                            Message.num_silla,
+                                       };
+
+                // Build the file content
+                var data = new StringBuilder();
+                data.AppendLine(string.Join(",", records));
+                byte[] buffer = Encoding.ASCII.GetBytes($"{data.ToString()}");
+                System.IO.File.WriteAllBytes($"{filepath}", buffer);
             }
             else
             {
