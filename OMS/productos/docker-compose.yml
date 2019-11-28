@@ -9,6 +9,8 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=javeriana123
             - POSTGRES_DB=product
+        volumes:
+            - data01:/var/lib/postgresql
         ports:
             - "5432:5432"
         networks:
@@ -28,3 +30,8 @@ services:
 
 networks:
     moteequeso:
+
+volumes:
+  data01:
+    driver: local
+
