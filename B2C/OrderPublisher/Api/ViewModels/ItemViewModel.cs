@@ -11,5 +11,9 @@
         public decimal price { get; set; }
 
         public int quantity { get; set; }
+
+        public int product_type_id { get; set; }
+
+        public int product_integreation_type_id { get; set; }
     }
 }
