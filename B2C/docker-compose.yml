@@ -30,6 +30,16 @@ services:
       - "8083:80"
     networks:
       - moteequeso_api
+  
+  orderspublisherb2c:
+    image: orderspublisherb2c
+    build:
+      context: ./OrderPublisher
+      dockerfile: Api/Dockerfile
+    ports:
+      - "8084:80"
+    networks:
+      - moteequeso_api
 
 networks:
     moteequeso_api:
