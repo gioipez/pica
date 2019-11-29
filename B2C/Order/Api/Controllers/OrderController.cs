@@ -105,7 +105,9 @@ namespace MoteeQueso.B2C.Order.Api.Controllers
                     product_id = itemViewModel.product_id,
                     product_name = itemViewModel.product_name,
                     price = itemViewModel.price,
-                    quantity = itemViewModel.quantity
+                    quantity = itemViewModel.quantity,
+                    product_type_id = itemViewModel.product_type_id,
+                    product_integration_type_id = itemViewModel.product_integreation_type_id
                 });
             }
 
