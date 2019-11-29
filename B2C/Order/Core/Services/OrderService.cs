@@ -95,7 +95,40 @@ namespace MoteeQueso.B2C.Order.Core.Services
 
         public async Task CreateReserveTransport(item item)
         {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
 
+            string webServiceTransport = configuration.GetValue<string>("WebServiceTransport");
+
+            reserve_transport reserve_Transport = new reserve_transport
+            {
+                provider_id = item.product_id,
+                integration_type_id = item.product_integration_type_id,
+                order_id = item.order.id,
+                first_name = "",
+                last_name = "",
+                departure_date = DateTime.Now,
+                departure_hour = 8,
+                trip_number = 2,
+                chair_number = 14,
+                origin = "",
+                destiny = ""
+            };
+
+            string body = JsonConvert.SerializeObject(reserve_Transport);
+            StringContent stringContent = new StringContent(body, Encoding.UTF8, "application/json");
+            HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(webServiceTransport, stringContent);
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                await UpdateOrderStatus(item.order.id, 2);
+            }
+            else
+            {
+                await UpdateOrderStatus(item.order.id, 3);
+            }
         }
 
         public async Task UpdateOrderStatus(int id, int status_id)
