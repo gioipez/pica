@@ -15,7 +15,7 @@ namespace ReciveOrders
     class Program
     {
         public const string cola = "CreateOrder";
-        public const string urlCreateOrder = "http://52.170.232.119:8082/api/order";
+        public const string urlCreateOrder = "http://52.170.232.119:8083/api/order";
 
         static void Main(string[] args)
         {
