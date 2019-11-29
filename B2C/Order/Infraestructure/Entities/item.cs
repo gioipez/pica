@@ -18,6 +18,10 @@ namespace MoteeQueso.B2C.Order.Infraestructure.Entities
 
         public int order_id { get; set; }
 
+        public int product_type_id { get; set; }
+
+        public int product_integration_type_id { get; set; }
+
         public order order { get; set; }
     }
 }
