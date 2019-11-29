@@ -15,7 +15,7 @@ namespace ReciveOrders
     class Program
     {
         public const string cola = "CreateOrder";
-        public const string urlCreateOrder = "http://13.90.244.183:8082/api/order";
+        public const string urlCreateOrder = "http://52.170.232.119:8083/api/order";
 
         static void Main(string[] args)
         {
@@ -47,18 +47,18 @@ namespace ReciveOrders
                     OrderDetailViewModel order = JsonConvert.DeserializeObject<OrderDetailViewModel>(message);
 
                     ClienteRestSharp cliente = new ClienteRestSharp();
-                    IRestResponse responseCustomer = cliente.Request(urlCreateOrder, Method.POST, order);
+                    IRestResponse responseOrder = cliente.Request(urlCreateOrder, Method.POST, order);
                     //IRestResponse responseAuth = cliente.Request(urlCreateUsrAuth, Method.POST, userAuth);
 
-                    if (responseCustomer.StatusCode == HttpStatusCode.OK)
+                    if (responseOrder.StatusCode == HttpStatusCode.OK)
                     {
                         channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-                        Console.WriteLine("Ok Response Customer -> {0}", responseCustomer.Content);
+                        Console.WriteLine("Ok Response Order -> {0}", responseOrder.Content);
                     }
                     else
                     {
                         Console.WriteLine("Fail");
-                        Console.WriteLine(" Customer StatusCode -> {0} Response -> {1}", responseCustomer.StatusCode, responseCustomer.Content);
+                        Console.WriteLine(" Response StatusCode -> {0} Response -> {1}", responseOrder.StatusCode, responseOrder.Content);
 
                         channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
 
